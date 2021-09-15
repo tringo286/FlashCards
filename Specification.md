@@ -1,778 +1,1229 @@
+Team 7 GitHub repository:
+
 https://github.com/tringo286/Team-7/
 
-Tri Ngo  - tringo286
+Mary Markart - marymarkart (https://github.com/marymarkart)
 
-Mary Markart - marymarkart
+Vladislav Semenyutin - skiffin-git (https://github.com/skiffin-git)
 
-# Create an Account
+Tri Ngo  - tringo286 (https://github.com/tringo286)
 
-**Date: September 14th, 2021**
+Quan Le - QuanLew (https://github.com/QuanLew)
 
-**Product Name: ?**
+**Date: 9/14/2021**
 
-**Problem Statement:**
+**Product Name: StudyBuddy **
 
-**Non-Functional Requirements:**
-
-**Account Signup:**
-
-## Summary
-
-Creating an account for a new user
-
-## Actors
-
-The user
-
-## Preconditions
-
-* The user does not already have an account
-## Triggers
-
-The user clicks “Sign Up”
-
-## Primary Sequence
-
-1. User clicks “Sign Up Now”
-2. The user enters the email address in the email address text field
-3. System checks that email address has not already been used
-4. The user enters username in the username text field
-5. System checks that username is available
-6. The user enters the password in the password text field
-7. The user enters password again the password verification text field
-8. System checks that passwords entered are the same
-9. The user clicks a button to submit 
-10. The system creates a new user account
-
-## Primary Postconditions
-
-* The new user account is in the system 
-* The user is able to log in
-
-## Alternate Sequences
-
-The email address entered is already in use 
-
-* The system displays an error message to the user
-* The system prompts the user to enter a different email address
-
-The username is not available
-
-* The system displays an error message to the user
-* The system prompts the user to enter a different username
-
-The passwords entered do not match
-
-* The system displays an error message to the user 
-* The system prompts the user to retype both passwords
-
-### Alternate Trigger
-
-### Alternate PostCondition
-
-# Delete an Account
-
-**Date: September 14th, 2021**
-
-**Product Name: ?**
-
-**Problem Statement:**
+**Problem Statement: Group creates an app that helps students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
 
-**Delete Account:**
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
-## Summary:
+# Use Case 
 
-Delete a user's account 
+## Mary
 
-## Actors
+### **1) Test case name:**
 
-The user
+### Summary
 
-## Preconditions
 
- The user has an active account
 
-## Triggers:
+### Actors
 
-The user click “Delete my account”
 
-## Primary Sequence
 
-1. The user clicks “Delete my account” from the Account page
-2. The system prompts the user to confirm they want to delete their account
-3. User confirms they would like to delete their account
-4. The system removes the account from the database
+### Preconditions
 
-## Primary Postconditions
 
-* The user cannot log in
-* The account is no longer valid in the system
 
-## Alternate Sequences
+### Triggers:
 
-The user decides not to delete their account 
 
-* The user clicks “Delete my account” from the Account page 
-* System prompts the user to confirm they want to delete their account
-* User clicks “Cancel”
+
+### Primary Sequence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The user clicks the “Cancel” button
+
 
 ### Alternate PostConditions
 
-* The user’s account is still accessible
-* The account remains in the system
 
-# Mary
 
-**Date: September 14th, 2021**
+## Mary
 
-**Product Name: ?**
+### **2) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Upload flash cards:**
 
-## Summary
+### Actors
 
-The user uploads a markdown file to be converted to flashcards
 
-## Actors
 
-The user
+### Preconditions
 
-## Preconditions
 
- The user has an active account
 
-## Triggers:
+### Triggers:
 
-The user clicks "Upload"
 
-## Primary Sequence
 
-1. The 
+### Primary Sequence
 
-## Primary Postconditions
 
-* The 
 
-## Alternate Sequences
 
-The 
 
-* The
 
-### Alternate Trigger
 
-The 
 
-### Alternate PostConditions
 
-* The 
 
-# Mary
 
-**Date: September 14th, 2021**
 
-**Product Name: ?**
 
-**Problem Statement:**
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
 
-The summary
 
-## Actors
 
-The actors
 
-## Preconditions
 
- The preconditions
+### Primary Postconditions
 
-## Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Vlad
 
-**Date: September 14th, 2021**
+## Mary
 
-**Product Name: ?**
+### **3) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Vlad
 
-**Date: September 14th, 2021**
+## Mary
 
-**Product Name: ?**
+### **4) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Vlad
 
-**Date: September 14th, 2021**
+## Vlad
 
-**Product Name: ?**
+### **5) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Vlad
 
-**Date: September 14th, 2021**
+## Vlad
 
-**Product Name: ?**
+### **6) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
+## Vlad
 
-**Product Name: ?**
+### **7) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
+## Vlad
 
-**Product Name: ?**
+### **8) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: ?**
+### **9) Test case name: Find text**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in and entered a file can search text in that file.
 
-**Test Case Name:**
+### Actors
 
-## Summary
+The user.
 
-The summary
+### Preconditions
 
-## Actors
+The user has logged and entered a file. 
 
-The actors
+### Triggers:
 
-## Preconditions
+User selects “search” option.
 
- The preconditions
+### Primary Sequence
 
-## Triggers:
+1. System prompts the user to enter text. 
+2. System searches for the text in the file.
+3. System shows matching results.
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+The system displays a message that searching is completed.
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+The user entered text that does not exist.
+
+- The system displays a message that no matches were found. 
+- The system prompts the user to enter a text that exists. 
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: ?**
+### **10) Test case name: Rename files **
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in and can rename any file.
 
-**Test Case Name:**
+### Actors
 
-## Summary
+The users.
 
-The summary
+### Preconditions
 
-## Actors
+The user has logged in.
 
-The actors
+### Triggers:
 
-## Preconditions
+User selects “rename” option.
 
- The preconditions
+### Primary Sequence
 
-## Triggers:
+1. System shows files. 
+2. User select a file and rename it.
+3. System renames the file.
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+The system displays a message that the file was renamed. 
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+The user entered an invalid name.
+
+- The system displays an error message to the user.
+- The system prompts the user to enter a valid name.
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Quan
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: ?**
+### **11) Test case name: Convert notes to pdf  **
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in can convert notes to pdf.
 
-**Test Case Name:**
+### Actors
 
-## Summary
+The users
 
-The summary
+### Preconditions
 
-## Actors
+The user has logged in.
 
-The actors
+### Triggers:
 
-## Preconditions
+User selects “covert” option.
 
- The preconditions
+### Primary Sequence
 
-## Triggers:
+1. System shows notes. 
+2. User select notes to convert.
+3. System converts the notes to pdf files.
+4. System prompt locations to save the files. 
+5. User select location. 
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+System displays a message that notes were converted to the user.
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Quan
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: ?**
+### **12) Test case name: Share notes  **
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in can share notes with other account.
 
-**Test Case Name:**
+### Actors
 
-## Summary
+The user.
 
-The summary
+### Preconditions
 
-## Actors
+A user has logged in can share notes with other accounts. 
 
-The actors
+### Triggers:
 
-## Preconditions
+User selects “share” option.
 
- The preconditions
+### Primary Sequence
 
-## Triggers:
+1. System shows notes. 
+2. User select notes to share.
+3. System prompt the user to enter the account’s name.
+4. System share the notes to other accounts.
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+System displays a message that notes were shared other accounts.
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+The user entered an account's name that does not exist. 
+
+- System displays an error message to the user. 
+- System prompt the user to enter a valid account’s name.
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Quan
 
-**Date: September 14th, 2021**
+## Quan
 
-**Product Name: ?**
+### **13) Test case name:**
 
-**Problem Statement:**
+### Summary
 
-**Non-Functional Requirements:**
 
-**Test Case Name:**
 
-## Summary
+### Actors
 
-The summary
 
-## Actors
 
-The actors
+### Preconditions
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
+### Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Primary Sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond         
+
+
+## Quan
+
+### **14) Test case name:**
+
+### Summary
+
+
+
+### Actors
+
+
+
+### Preconditions
+
+
+
+### Triggers:
+
+
+
+### Primary Sequence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Trigger
+
+
+
+### Alternate PostConditions
+
+
+
+## Quan
+
+### **15) Test case name:**
+
+### Summary
+
+
+
+### Actors
+
+
+
+### Preconditions
+
+
+
+### Triggers:
+
+
+
+### Primary Sequence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Trigger
+
+
+
+### Alternate PostConditions
+
+
+
+## Quan
+
+### **16) Test case name:**
+
+### Summary
+
+
+
+### Actors
+
+
+
+### Preconditions
+
+
+
+### Triggers:
+
+
+
+### Primary Sequence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
+
+### Alternate Trigger
+
+
+
+### Alternate PostConditions
