@@ -2,15 +2,14 @@ https://github.com/tringo286/Team-7/
 Tri Ngo tringo286
 Mary Markart marymarkart
 
-Date: September 14th, 2021
+# Create an Account
 
+**Date: September 14th, 2021
 Product Name: ?
-
 Problem Statement: 
+Non-Functional Requirements:**
 
-Non-Functional Requirements: 
-
-**Account signup**
+**Account Signup:**
 
 ## Summary
 
@@ -49,7 +48,7 @@ The user clicks “Sign Up”
 
 The email address entered is already in use 
 
-* The system displays an error message to the user*
+* The system displays an error message to the user
 * The system prompts the user to enter a different email address
 
 The username is not available
@@ -66,13 +65,18 @@ The passwords entered do not match
 
 ### Alternate PostCondition
 
+# Delete an Account
 
+**Date: September 14th, 2021
+Product Name: ?
+Problem Statement: 
+Non-Functional Requirements:**
 
-**Delete account**
+**Delete Account:**
 
 ## Summary:
 
-Delete an account 
+Delete a user's account 
 
 ## Actors
 
@@ -100,7 +104,7 @@ The user click “Delete my account”
 
 ## Alternate Sequences
 
-The user decides not to delete their account* 
+The user decides not to delete their account 
 
 * The user clicks “Delete my account” from the Account page 
 * System prompts the user to confirm they want to delete their account
@@ -112,82 +116,5 @@ The user clicks the “Cancel” button
 
 ### Alternate PostConditions
 
-* The user’s account is still accessible* The account remains in the system
-
-**Account Login**
-
-## Summary
-
-Log into user account
-
-## Actors
-
-The user
-
-## Preconditions* 
-
-The user must have an active account
-
-## Triggers
-
-The user clicks “Login”
-
-## Primary Sequence
-
-1. The user clicks “Login”
-2. The user enters their email address
-3. The user enters their password
-4. The user clicks “Sign in”
-5. The system checks if the user’s email address and password are valid
-6. The system displays a successful login page
-
-## Primary Postconditions 
-
-The user is now logged into their account
-
-## Alternate Sequences
-
-The user’s email address is not valid 
-
-* The System displays an error message that the email address is not valid* 
-* The system prompts the user to enter a different email address
-
-The user’s password is wrong
-
-* The system displays an error message that the email address is not valid
-* The system prompts the user to enter the correct password
-
-### Alternate Trigger
-
-The user enters the wrong email address or password
-
-### Alternate PostConditions 
-
-* The user is not able to login to their account
-
-**Account Logout** 
-
-## Summary
-
-The user logs out of their account
-
-## Actors
-
-The user
-
-## Preconditions* 
-
-* The user has an account and is logged into it
-
-## Triggers
-
-The user clicks “Logout”
-
-## Primary Sequence
-
-1. The user clicks “Logout”
-2. The system logs the user out
-
-## Primary Postconditions 
-
-* The user no longer has access to their account
+* The user’s account is still accessible
+* The account remains in the system
