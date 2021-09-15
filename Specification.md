@@ -126,3 +126,653 @@ The user clicks the “Cancel” button
 
 * The user’s account is still accessible
 * The account remains in the system
+
+# Upload a markdown file for flash cards
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Upload flash cards:**
+
+## Summary
+
+The user uploads a markdown file to be converted to flashcards
+
+## Actors
+
+The user
+
+## Preconditions
+
+ The user has an active account
+
+## Triggers:
+
+The user clicks "Upload"
+
+## Primary Sequence
+
+1. The 
+
+## Primary Postconditions
+
+* The 
+
+## Alternate Sequences
+
+The 
+
+* The
+
+### Alternate Trigger
+
+The 
+
+### Alternate PostConditions
+
+* The 
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
+
+# Use case description
+
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement:**
+
+**Non-Functional Requirements:**
+
+**Test Case Name:**
+
+## Summary
+
+The summary
+
+## Actors
+
+The actors
+
+## Preconditions
+
+ The preconditions
+
+## Triggers:
+
+The triggers
+
+## Primary Sequence
+
+1. The sequence
+
+## Primary Postconditions
+
+* The postcond
+
+## Alternate Sequences
+
+The alt sequence
+
+* The alt sequence steps
+
+### Alternate Trigger
+
+The al trigger
+
+### Alternate PostConditions
+
+* The alt postcond
