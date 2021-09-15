@@ -30,73 +30,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Mary
 
@@ -104,73 +104,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Mary
 
@@ -178,73 +178,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Mary
 
@@ -252,73 +252,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Vlad
 
@@ -326,73 +326,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Vlad
 
@@ -400,73 +400,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Vlad
 
@@ -474,73 +474,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Vlad
 
@@ -548,73 +548,73 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Tri
 
@@ -940,73 +940,73 @@ The user entered an account's name that does not exist.
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Quan
 
@@ -1014,73 +1014,73 @@ The user entered an account's name that does not exist.
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Quan
 
@@ -1088,73 +1088,73 @@ The user entered an account's name that does not exist.
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
-
+#
 
 ## Quan
 
@@ -1162,69 +1162,70 @@ The user entered an account's name that does not exist.
 
 ### Summary
 
-
+#
 
 ### Actors
 
-
+#
 
 ### Preconditions
 
-
+#
 
 ### Triggers:
 
-
+#
 
 ### Primary Sequence
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
-
-
-
-
-
+#
 
 ### Primary Postconditions
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Sequences
 
+#
 
+#
 
+#
 
+#
 
-
-
-
-
-
+#
 
 ### Alternate Trigger
 
-
+#
 
 ### Alternate PostConditions
 
+#
