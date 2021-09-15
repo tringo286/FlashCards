@@ -8,11 +8,15 @@ Mary Markart - marymarkart
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Account Signup:**
 
@@ -74,11 +78,15 @@ The passwords entered do not match
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Delete Account:**
 
@@ -131,11 +139,15 @@ The user clicks the “Cancel” button
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Upload flash cards:**
 
@@ -181,11 +193,15 @@ The
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -231,11 +247,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -281,11 +301,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -331,11 +355,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -381,11 +409,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -431,11 +463,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -481,11 +517,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -531,11 +571,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -581,11 +625,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -631,11 +679,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -681,11 +733,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
@@ -731,11 +787,15 @@ The al trigger
 
 **Date: September 14th, 2021**
 
-**Product Name: ?**
+**Product Name: StudyBuddy**
 
-**Problem Statement:**
+**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
+
+1. The system responds to each user input within 1 second
+2. Must be able to run on web
+3. The app will be in English
 
 **Test Case Name:**
 
