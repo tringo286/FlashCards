@@ -1,8 +1,8 @@
 https://github.com/tringo286/Team-7/
 
-Tri Ngo @tringo286
+Tri Ngo  - tringo286
 
-Mary Markart @marymarkart
+Mary Markart - marymarkart
 
 # Create an Account
 
@@ -10,7 +10,7 @@ Mary Markart @marymarkart
 
 **Product Name: ?**
 
-**Problem Statement: **
+**Problem Statement:**
 
 **Non-Functional Requirements:**
 
@@ -76,7 +76,7 @@ The passwords entered do not match
 
 **Product Name: ?**
 
-**Problem Statement: **
+**Problem Statement:**
 
 **Non-Functional Requirements:**
 
