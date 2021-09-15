@@ -127,7 +127,7 @@ The user clicks the “Cancel” button
 * The user’s account is still accessible
 * The account remains in the system
 
-# Upload a markdown file for flash cards
+# Mary
 
 **Date: September 14th, 2021**
 
@@ -177,7 +177,7 @@ The
 
 * The 
 
-# Use case description
+# Mary
 
 **Date: September 14th, 2021**
 
@@ -227,7 +227,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Vlad
 
 **Date: September 14th, 2021**
 
@@ -277,7 +277,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Vlad
 
 **Date: September 14th, 2021**
 
@@ -327,7 +327,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Vlad
 
 **Date: September 14th, 2021**
 
@@ -377,7 +377,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Vlad
 
 **Date: September 14th, 2021**
 
@@ -427,7 +427,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Tri
 
 **Date: September 14th, 2021**
 
@@ -477,7 +477,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Tri
 
 **Date: September 14th, 2021**
 
@@ -527,7 +527,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Tri
 
 **Date: September 14th, 2021**
 
@@ -577,7 +577,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Tri
 
 **Date: September 14th, 2021**
 
@@ -627,7 +627,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Quan
 
 **Date: September 14th, 2021**
 
@@ -677,7 +677,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Quan
 
 **Date: September 14th, 2021**
 
@@ -727,7 +727,7 @@ The al trigger
 
 * The alt postcond
 
-# Use case description
+# Quan
 
 **Date: September 14th, 2021**
 
@@ -775,4 +775,4 @@ The al trigger
 
 ### Alternate PostConditions
 
-* The alt postcond
+* The alt postcond         
