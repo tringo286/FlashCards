@@ -4,10 +4,13 @@ Mary Markart marymarkart
 
 # Create an Account
 
-**Date: September 14th, 2021
-Product Name: ?
-Problem Statement: 
-Non-Functional Requirements:**
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement: **
+
+**Non-Functional Requirements:**
 
 **Account Signup:**
 
@@ -67,10 +70,13 @@ The passwords entered do not match
 
 # Delete an Account
 
-**Date: September 14th, 2021
-Product Name: ?
-Problem Statement: 
-Non-Functional Requirements:**
+**Date: September 14th, 2021**
+
+**Product Name: ?**
+
+**Problem Statement: **
+
+**Non-Functional Requirements:**
 
 **Delete Account:**
 
