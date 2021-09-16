@@ -322,299 +322,198 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 
 ## Vlad
 
-### **5) Test case name:**
+## 5) Test Case Name: Input a markdown file and output flash cards.
 
 ### Summary
 
-#
+input a markdown file and output flash cards
 
 ### Actors
 
-#
+* The user
+
+* The web site
 
 ### Preconditions
 
-#
+* A web page dedicated for flash cards
 
 ### Triggers:
 
-#
+* User clicks on button named "create a flash card"
 
 ### Primary Sequence
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
+1. User clicks on button named "Create a flash card"
+2. Web site lets user to type two inputs: one for question and one for answer
+3. User put his question and answer
+4. User clicks on button named "save"
+5. Web site creates a flash card with the inputs
 
 ### Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
+* A flash card with question and answer
 
 ### Alternate Sequences
 
-#
+If user left one of inputs empty:
 
-#
+- Web site output an error message "empty question / answer side"
 
-#
+* Web site don't let user create a flash card until user input something
 
-#
+* User clicks on button called "Cancel" while writing inputs for a flash card
 
-#
+* Web site delete a flash card and returns to the previous step
 
 ### Alternate Trigger
 
-#
+* No alternate trigger
 
-### Alternate PostConditions
+### Alternate Post Conditions
 
-#
+* No alternate post conditions
 
-## Vlad
+# Vlad
 
-### **6) Test case name:**
+## 6) Test Case Name: Share flash cards with other people (add to their account)
 
 ### Summary
 
-#
+* Share flash cards with other people (add to their account)
 
 ### Actors
 
-#
+* The user 
+
+* The web site
 
 ### Preconditions
 
-#
+* Have at least one flash card on user's #1 account
 
 ### Triggers:
 
-#
+User #1 clicks on button called "share flash cards" 
 
 ### Primary Sequence
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
+1. User clicks on button called "share flash cards"
+2. User selects flash cards that he/she wants to share
+3. When user  finished selecting flash cards, he/she press on button called "Send"
+4. Web site opens an input for the name of another account
+5. Web site copy flashcards from user and add them to account with the name from input 
 
 ### Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
+* User sent his flash card to a different account
 
 ### Alternate Sequences
 
-#
+If user not found:
 
-#
+* Web site outputs an error: "No account with such name was found."
 
-#
+If user with name from input already had those flash cards:
 
-#
-
-#
+* Web site outputs an error: "The account with name 'name' already has these flash cards"
 
 ### Alternate Trigger
 
-#
+* no alternate trigger
 
-### Alternate PostConditions
+### Alternate Post. Conditions
 
-#
+*  No alternate post conditions
 
-## Vlad
+# Vlad
 
-### **7) Test case name:**
+## 7) Test Case Name: Change order of flash cards based on how often user got answer correct
+
+## Summary
+
+* Change order of flash cards based on how often user got answer correct
+
+### Actors
+
+* The user
+* The web site
+
+### Preconditions
+
+* The user need to have at least 3 flash cards on his account
+* (optional) In settings user's account should have a checkbox "on" for this feature
+
+### Triggers:
+
+* User checks the answer of a flash card
+
+### Primary Sequence
+
+1. When user checks answer, there should be two buttons: "Got it right!" or "Got it wrong"
+2. User pressed on one of the buttons
+3. If user pressed "Got it right" button => count adds +1 to correct answers and shuffle the card in the end of the deck
+4. If user pressed "Got it wrong" button => this card shuffles in the middle (between this card and the end) of the deck.
+
+### Primary Postconditions
+
+* User's deck of flash cards shuffled according on which button he/she pressed
+
+### Alternate Sequences
+
+* If user didn't press any of the buttons and flips the card back => do nothing
+
+### Alternate Trigger
+
+* No alternate sequences
+
+### Alternate Postconditions
+
+* No alternate postconditions
+
+# Vlad
+
+## 8) Test Case Name: Create a pdf file of flash cards to print
 
 ### Summary
 
-#
+Create a pdf file of flash cards to print
 
 ### Actors
 
-#
+* The user
+* The web site
 
 ### Preconditions
 
-#
+ User's account must have at least one flash card
 
 ### Triggers:
 
-#
+* User presses on button "download flash cards"
 
 ### Primary Sequence
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
+1. User presses on button "download flash cards"
+2. Web site create a pdf file and upload there all flash cards with questions and answers
+3. Web site open a new tab and let user to download the file
+4. User presses download, and get the pdf file
 
 ### Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
+* User got a pdf file of all flash cards with questions and answers
 
 ### Alternate Sequences
 
-#
-
-#
-
-#
-
-#
-
-#
+* The button to "download" should appear only when at least one flash cards was created
 
 ### Alternate Trigger
 
-#
+* No alternate trigger
 
-### Alternate PostConditions
+### Alternate Postconditions
 
-#
-
-## Vlad
-
-### **8) Test case name:**
-
-### Summary
-
-#
-
-### Actors
-
-#
-
-### Preconditions
-
-#
-
-### Triggers:
-
-#
-
-### Primary Sequence
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Primary Postconditions
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Alternate Sequences
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Alternate Trigger
-
-#
-
-### Alternate PostConditions
-
-#
+* No alternate postconditions
 
 ## Tri
 
