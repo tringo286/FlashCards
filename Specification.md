@@ -243,7 +243,7 @@ The al trigger
 
 * The alt postcond
 
-# Vlad
+# Vlad-Input a markdown file and output flash cards.
 
 **Date: September 14th, 2021**
 
@@ -261,43 +261,54 @@ The al trigger
 
 ## Summary
 
-The summary
+input a markdown file and output flash cards
 
 ## Actors
 
-The actors
+* The user
+
+* The web site
 
 ## Preconditions
 
- The preconditions
+* A web page dedicated for flash cards
 
 ## Triggers:
 
-The triggers
+User clicks on button named "create a flash card"
 
 ## Primary Sequence
 
-1. The sequence
+1. User clicks on button named "Create a flash card"
+2. Web site lets user to type two inputs: one for question and one for answer
+3. User put his question and answer
+4. User clicks on button named "save"
+5. Web site creates a flash card with the inputs
 
 ## Primary Postconditions
 
-* The postcond
+* A flash card with question and answer
 
 ## Alternate Sequences
 
-The alt sequence
+User left one of inputs empty
 
-* The alt sequence steps
+* Web site output an error message "empty question / answer side"
+* Web site don't let user create a flash card until user input something
+
+User clicks on button called "Cancel" while writing inputs for a flash card
+
+* Web site delete a flash card and returns to the previous step
 
 ### Alternate Trigger
 
-The al trigger
+No alternate trigger
 
-### Alternate PostConditions
+### Alternate Post Conditions
 
-* The alt postcond
+* No alternate post conditions
 
-# Vlad
+# Vlad-Share flash cards (add to their account)
 
 **Date: September 14th, 2021**
 
@@ -315,23 +326,30 @@ The al trigger
 
 ## Summary
 
-The summary
+Share flash cards with other people (add to their account)
 
 ## Actors
 
-The actors
+* User #1
+
+* User #2
+
+* The web site
 
 ## Preconditions
 
- The preconditions
+* Have at least one flash card on user's #1 account
 
 ## Triggers:
 
-The triggers
+User #1 clicks on button called "share flash cards" 
 
 ## Primary Sequence
 
-1. The sequence
+1. User #1 clicks on button called "share flash cards"
+2. User #1 selects flash cards that he/she wants to share
+3. When user #1 finished selecting flash cards, he/she press on button called "Send"
+4. Web site opens an input 
 
 ## Primary Postconditions
 
