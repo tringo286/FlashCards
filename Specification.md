@@ -1,86 +1,20 @@
+Team 7 GitHub repository:
+
 https://github.com/tringo286/Team-7/
 
-Tri Ngo  - tringo286
+Mary Markart - marymarkart (https://github.com/marymarkart)
 
-Mary Markart - marymarkart
+Vladislav Semenyutin - skiffin-git (https://github.com/skiffin-git)
 
-# Create an Account
+Tri Ngo  - tringo286 (https://github.com/tringo286)
 
-**Date: September 14th, 2021**
+Quan Le - QuanLew (https://github.com/QuanLew)
 
-**Product Name: StudyBuddy**
+**Date: 9/14/2021**
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+**Product Name: StudyBuddy **
 
-**Non-Functional Requirements:**
-
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
-
-**Account Signup:**
-
-## Summary
-
-Creating an account for a new user
-
-## Actors
-
-The user
-
-## Preconditions
-
-* The user does not already have an account
-## Triggers
-
-The user clicks “Sign Up”
-
-## Primary Sequence
-
-1. User clicks “Sign Up Now”
-2. The user enters the email address in the email address text field
-3. System checks that email address has not already been used
-4. The user enters username in the username text field
-5. System checks that username is available
-6. The user enters the password in the password text field
-7. The user enters password again the password verification text field
-8. System checks that passwords entered are the same
-9. The user clicks a button to submit 
-10. The system creates a new user account
-
-## Primary Postconditions
-
-* The new user account is in the system 
-* The user is able to log in
-
-## Alternate Sequences
-
-The email address entered is already in use 
-
-* The system displays an error message to the user
-* The system prompts the user to enter a different email address
-
-The username is not available
-
-* The system displays an error message to the user
-* The system prompts the user to enter a different username
-
-The passwords entered do not match
-
-* The system displays an error message to the user 
-* The system prompts the user to retype both passwords
-
-### Alternate Trigger
-
-### Alternate PostCondition
-
-# Delete an Account
-
-**Date: September 14th, 2021**
-
-**Product Name: StudyBuddy**
-
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+**Problem Statement: Group creates an app that helps students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
 **Non-Functional Requirements:**
 
@@ -88,196 +22,327 @@ The passwords entered do not match
 2. Must be able to run on web
 3. The app will be in English
 
-**Delete Account:**
+# Use Case 
 
-## Summary:
+## Mary
 
-Delete a user's account 
+### **1) Test case name:**
 
-## Actors
+### Summary
 
-The user
+#
 
-## Preconditions
+### Actors
 
- The user has an active account
+#
 
-## Triggers:
+### Preconditions
 
-The user click “Delete my account”
+#
 
-## Primary Sequence
+### Triggers:
 
-1. The user clicks “Delete my account” from the Account page
-2. The system prompts the user to confirm they want to delete their account
-3. User confirms they would like to delete their account
-4. The system removes the account from the database
+#
 
-## Primary Postconditions
+### Primary Sequence
 
-* The user cannot log in
-* The account is no longer valid in the system
+#
 
-## Alternate Sequences
+#
 
-The user decides not to delete their account 
+#
 
-* The user clicks “Delete my account” from the Account page 
-* System prompts the user to confirm they want to delete their account
-* User clicks “Cancel”
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
 
 ### Alternate Trigger
 
-The user clicks the “Cancel” button
+#
 
 ### Alternate PostConditions
 
-* The user’s account is still accessible
-* The account remains in the system
+#
 
-# Mary
+## Mary
 
-**Date: September 14th, 2021**
+### **2) Test case name:**
 
-**Product Name: StudyBuddy**
+### Summary
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+#
 
-**Non-Functional Requirements:**
+### Actors
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+#
 
-**Upload flash cards:**
+### Preconditions
 
-## Summary
+#
 
-The user uploads a markdown file to be converted to flashcards
+### Triggers:
 
-## Actors
+#
 
-The user
+### Primary Sequence
 
-## Preconditions
+#
 
- The user has an active account
+#
 
-## Triggers:
+#
 
-The user clicks "Upload"
+#
 
-## Primary Sequence
+#
 
-1. The 
+#
 
-## Primary Postconditions
+#
 
-* The 
+#
 
-## Alternate Sequences
+#
 
-The 
+#
 
-* The
+### Primary Postconditions
 
-### Alternate Trigger
+#
 
-The 
+#
 
-### Alternate PostConditions
+#
 
-* The 
+#
 
-# Mary
+#
 
-**Date: September 14th, 2021**
+### Alternate Sequences
 
-**Product Name: StudyBuddy**
+#
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+#
 
-**Non-Functional Requirements:**
+#
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+#
 
-**Test Case Name:**
-
-## Summary
-
-The summary
-
-## Actors
-
-The actors
-
-## Preconditions
-
- The preconditions
-
-## Triggers:
-
-The triggers
-
-## Primary Sequence
-
-1. The sequence
-
-## Primary Postconditions
-
-* The postcond
-
-## Alternate Sequences
-
-The alt sequence
-
-* The alt sequence steps
+#
 
 ### Alternate Trigger
 
-The al trigger
+#
 
 ### Alternate PostConditions
 
-* The alt postcond
+#
 
-# Vlad-Input a markdown file and output flash cards.
+## Mary
 
-**Date: September 14th, 2021**
+### **3) Test case name:**
 
-**Product Name: StudyBuddy**
+### Summary
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+#
 
-**Non-Functional Requirements:**
+### Actors
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+#
 
-**Test Case Name:**
+### Preconditions
 
-## Summary
+#
+
+### Triggers:
+
+#
+
+### Primary Sequence
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Trigger
+
+#
+
+### Alternate PostConditions
+
+#
+
+## Mary
+
+### **4) Test case name:**
+
+### Summary
+
+#
+
+### Actors
+
+#
+
+### Preconditions
+
+#
+
+### Triggers:
+
+#
+
+### Primary Sequence
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Trigger
+
+#
+
+### Alternate PostConditions
+
+#
+
+## Vlad
+
+## 5) Test Case Name: Input a markdown file and output flash cards.
+
+### Summary
 
 input a markdown file and output flash cards
 
-## Actors
+### Actors
 
 * The user
 
 * The web site
 
-## Preconditions
+### Preconditions
 
 * A web page dedicated for flash cards
 
-## Triggers:
+### Triggers:
 
-User clicks on button named "create a flash card"
+* User clicks on button named "create a flash card"
 
-## Primary Sequence
+### Primary Sequence
 
 1. User clicks on button named "Create a flash card"
 2. Web site lets user to type two inputs: one for question and one for answer
@@ -285,572 +350,781 @@ User clicks on button named "create a flash card"
 4. User clicks on button named "save"
 5. Web site creates a flash card with the inputs
 
-## Primary Postconditions
+### Primary Postconditions
 
 * A flash card with question and answer
 
-## Alternate Sequences
+### Alternate Sequences
 
-User left one of inputs empty
+If user left one of inputs empty:
 
-* Web site output an error message "empty question / answer side"
+- Web site output an error message "empty question / answer side"
+
 * Web site don't let user create a flash card until user input something
 
-User clicks on button called "Cancel" while writing inputs for a flash card
+* User clicks on button called "Cancel" while writing inputs for a flash card
 
 * Web site delete a flash card and returns to the previous step
 
 ### Alternate Trigger
 
-No alternate trigger
+* No alternate trigger
 
 ### Alternate Post Conditions
 
 * No alternate post conditions
 
-# Vlad-Share flash cards (add to their account)
+# Vlad
 
-**Date: September 14th, 2021**
+## 6) Test Case Name: Share flash cards with other people (add to their account)
 
-**Product Name: StudyBuddy**
+### Summary
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+* Share flash cards with other people (add to their account)
 
-**Non-Functional Requirements:**
+### Actors
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
-
-**Test Case Name:**
-
-## Summary
-
-Share flash cards with other people (add to their account)
-
-## Actors
-
-* User #1
-
-* User #2
+* The user 
 
 * The web site
 
-## Preconditions
+### Preconditions
 
 * Have at least one flash card on user's #1 account
 
-## Triggers:
+### Triggers:
 
 User #1 clicks on button called "share flash cards" 
 
-## Primary Sequence
+### Primary Sequence
 
-1. User #1 clicks on button called "share flash cards"
-2. User #1 selects flash cards that he/she wants to share
-3. When user #1 finished selecting flash cards, he/she press on button called "Send"
-4. Web site opens an input 
+1. User clicks on button called "share flash cards"
+2. User selects flash cards that he/she wants to share
+3. When user  finished selecting flash cards, he/she press on button called "Send"
+4. Web site opens an input for the name of another account
+5. Web site copy flashcards from user and add them to account with the name from input 
 
-## Primary Postconditions
+### Primary Postconditions
 
-* The postcond
+* User sent his flash card to a different account
 
-## Alternate Sequences
+### Alternate Sequences
 
-The alt sequence
+If user not found:
 
-* The alt sequence steps
+* Web site outputs an error: "No account with such name was found."
+
+If user with name from input already had those flash cards:
+
+* Web site outputs an error: "The account with name 'name' already has these flash cards"
 
 ### Alternate Trigger
 
-The al trigger
+* no alternate trigger
 
-### Alternate PostConditions
+### Alternate Post. Conditions
 
-* The alt postcond
+*  No alternate post conditions
 
 # Vlad
 
-**Date: September 14th, 2021**
-
-**Product Name: StudyBuddy**
-
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
-
-**Non-Functional Requirements:**
-
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
-
-**Test Case Name:**
+## 7) Test Case Name: Change order of flash cards based on how often user got answer correct
 
 ## Summary
 
-The summary
+* Change order of flash cards based on how often user got answer correct
 
-## Actors
+### Actors
 
-The actors
+* The user
+* The web site
 
-## Preconditions
+### Preconditions
 
- The preconditions
+* The user need to have at least 3 flash cards on his account
+* (optional) In settings user's account should have a checkbox "on" for this feature
 
-## Triggers:
+### Triggers:
 
-The triggers
+* User checks the answer of a flash card
 
-## Primary Sequence
+### Primary Sequence
 
-1. The sequence
+1. When user checks answer, there should be two buttons: "Got it right!" or "Got it wrong"
+2. User pressed on one of the buttons
+3. If user pressed "Got it right" button => count adds +1 to correct answers and shuffle the card in the end of the deck
+4. If user pressed "Got it wrong" button => this card shuffles in the middle (between this card and the end) of the deck.
 
-## Primary Postconditions
+### Primary Postconditions
 
-* The postcond
+* User's deck of flash cards shuffled according on which button he/she pressed
 
-## Alternate Sequences
+### Alternate Sequences
 
-The alt sequence
-
-* The alt sequence steps
+* If user didn't press any of the buttons and flips the card back => do nothing
 
 ### Alternate Trigger
 
-The al trigger
+* No alternate sequences
 
-### Alternate PostConditions
+### Alternate Postconditions
 
-* The alt postcond
+* No alternate postconditions
 
 # Vlad
 
-**Date: September 14th, 2021**
+## 8) Test Case Name: Create a pdf file of flash cards to print
 
-**Product Name: StudyBuddy**
+### Summary
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+Create a pdf file of flash cards to print
 
-**Non-Functional Requirements:**
+### Actors
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+* The user
+* The web site
 
-**Test Case Name:**
+### Preconditions
 
-## Summary
+ User's account must have at least one flash card
 
-The summary
+### Triggers:
 
-## Actors
+* User presses on button "download flash cards"
 
-The actors
+### Primary Sequence
 
-## Preconditions
+1. User presses on button "download flash cards"
+2. Web site create a pdf file and upload there all flash cards with questions and answers
+3. Web site open a new tab and let user to download the file
+4. User presses download, and get the pdf file
 
- The preconditions
+### Primary Postconditions
 
-## Triggers:
+* User got a pdf file of all flash cards with questions and answers
 
-The triggers
+### Alternate Sequences
 
-## Primary Sequence
-
-1. The sequence
-
-## Primary Postconditions
-
-* The postcond
-
-## Alternate Sequences
-
-The alt sequence
-
-* The alt sequence steps
+* The button to "download" should appear only when at least one flash cards was created
 
 ### Alternate Trigger
 
-The al trigger
+* No alternate trigger
 
-### Alternate PostConditions
+### Alternate Postconditions
 
-* The alt postcond
+* No alternate postconditions
 
-# Tri
+## Tri
 
-**Date: September 14th, 2021**
+### **9) Test case name: Find text**
 
-**Product Name: StudyBuddy**
+### Summary
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+A user who has logged in and entered a file can search text in that file.
 
-**Non-Functional Requirements:**
+### Actors
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+The user.
 
-**Test Case Name:**
+### Preconditions
 
-## Summary
+The user has logged and entered a file. 
 
-The summary
+### Triggers:
 
-## Actors
+User selects “search” option.
 
-The actors
+### Primary Sequence
 
-## Preconditions
+1. System prompts the user to enter text. 
+2. System searches for the text in the file.
+3. System shows matching results.
 
- The preconditions
 
-## Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
 
-### Alternate Trigger
 
-The al trigger
 
-### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
 
-**Product Name: StudyBuddy**
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
 
-**Non-Functional Requirements:**
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
 
-**Test Case Name:**
+### Primary Postconditions
 
-## Summary
+The system displays a message that searching is completed.
 
-The summary
 
-## Actors
 
-The actors
 
-## Preconditions
 
- The preconditions
 
-## Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
+### Alternate Sequences
 
-## Primary Postconditions
+The user entered text that does not exist.
 
-* The postcond
+- The system displays a message that no matches were found. 
+- The system prompts the user to enter a text that exists. 
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: StudyBuddy**
+### **10) Test case name: Rename files **
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in and can rename any file.
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+### Actors
 
-**Test Case Name:**
+The users.
 
-## Summary
+### Preconditions
 
-The summary
+The user has logged in.
 
-## Actors
+### Triggers:
 
-The actors
+User selects “rename” option.
 
-## Preconditions
+### Primary Sequence
 
- The preconditions
+1. System shows files. 
+2. User select a file and rename it.
+3. System renames the file.
 
-## Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+The system displays a message that the file was renamed. 
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+The user entered an invalid name.
+
+- The system displays an error message to the user.
+- The system prompts the user to enter a valid name.
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Tri
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: StudyBuddy**
+### **11) Test case name: Convert notes to pdf  **
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in can convert notes to pdf.
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+### Actors
 
-**Test Case Name:**
+The users
 
-## Summary
+### Preconditions
 
-The summary
+The user has logged in.
 
-## Actors
+### Triggers:
 
-The actors
+User selects “covert” option.
 
-## Preconditions
+### Primary Sequence
 
- The preconditions
+1. System shows notes. 
+2. User select notes to convert.
+3. System converts the notes to pdf files.
+4. System prompt locations to save the files. 
+5. User select location. 
 
-## Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+System displays a message that notes were converted to the user.
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Quan
 
-**Date: September 14th, 2021**
+## Tri
 
-**Product Name: StudyBuddy**
+### **12) Test case name: Share notes  **
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+### Summary
 
-**Non-Functional Requirements:**
+A user who has logged in can share notes with other account.
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+### Actors
 
-**Test Case Name:**
+The user.
 
-## Summary
+### Preconditions
 
-The summary
+A user has logged in can share notes with other accounts. 
 
-## Actors
+### Triggers:
 
-The actors
+User selects “share” option.
 
-## Preconditions
+### Primary Sequence
 
- The preconditions
+1. System shows notes. 
+2. User select notes to share.
+3. System prompt the user to enter the account’s name.
+4. System share the notes to other accounts.
 
-## Triggers:
 
-The triggers
 
-## Primary Sequence
 
-1. The sequence
 
-## Primary Postconditions
 
-* The postcond
 
-## Alternate Sequences
 
-The alt sequence
 
-* The alt sequence steps
+
+
+
+
+
+
+
+
+
+
+### Primary Postconditions
+
+System displays a message that notes were shared other accounts.
+
+
+
+
+
+
+
+
+
+### Alternate Sequences
+
+The user entered an account's name that does not exist. 
+
+- System displays an error message to the user. 
+- System prompt the user to enter a valid account’s name.
+
+
+
+
+
+
+
+
 
 ### Alternate Trigger
 
-The al trigger
+
 
 ### Alternate PostConditions
 
-* The alt postcond
 
-# Quan
 
-**Date: September 14th, 2021**
+## Quan
 
-**Product Name: StudyBuddy**
+### **13) Test case name:**
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+### Summary
 
-**Non-Functional Requirements:**
+#
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+### Actors
 
-**Test Case Name:**
+#
 
-## Summary
+### Preconditions
 
-The summary
+#
 
-## Actors
+### Triggers:
 
-The actors
+#
 
-## Preconditions
+### Primary Sequence
 
- The preconditions
+#
 
-## Triggers:
+#
 
-The triggers
+#
 
-## Primary Sequence
+#
 
-1. The sequence
+#
 
-## Primary Postconditions
+#
 
-* The postcond
+#
 
-## Alternate Sequences
+#
 
-The alt sequence
+#
 
-* The alt sequence steps
+#
+
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
 
 ### Alternate Trigger
 
-The al trigger
+#
 
 ### Alternate PostConditions
 
-* The alt postcond
+#
 
-# Quan
+## Quan
 
-**Date: September 14th, 2021**
+### **14) Test case name:**
 
-**Product Name: StudyBuddy**
+### Summary
 
-**Problem Statement: Help students to study more effectively through memorization with flash cards, uploading and searching notes, and time management**
+#
 
-**Non-Functional Requirements:**
+### Actors
 
-1. The system responds to each user input within 1 second
-2. Must be able to run on web
-3. The app will be in English
+#
 
-**Test Case Name:**
+### Preconditions
 
-## Summary
+#
 
-The summary
+### Triggers:
 
-## Actors
+#
 
-The actors
+### Primary Sequence
 
-## Preconditions
+#
 
- The preconditions
+#
 
-## Triggers:
+#
 
-The triggers
+#
 
-## Primary Sequence
+#
 
-1. The sequence
+#
 
-## Primary Postconditions
+#
 
-* The postcond
+#
 
-## Alternate Sequences
+#
 
-The alt sequence
+#
 
-* The alt sequence steps
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
 
 ### Alternate Trigger
 
-The al trigger
+#
 
 ### Alternate PostConditions
 
-* The alt postcond         
+#
+
+## Quan
+
+### **15) Test case name:**
+
+### Summary
+
+#
+
+### Actors
+
+#
+
+### Preconditions
+
+#
+
+### Triggers:
+
+#
+
+### Primary Sequence
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Trigger
+
+#
+
+### Alternate PostConditions
+
+#
+
+## Quan
+
+### **16) Test case name:**
+
+### Summary
+
+#
+
+### Actors
+
+#
+
+### Preconditions
+
+#
+
+### Triggers:
+
+#
+
+### Primary Sequence
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Primary Postconditions
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Sequences
+
+#
+
+#
+
+#
+
+#
+
+#
+
+### Alternate Trigger
+
+#
+
+### Alternate PostConditions
+
+#
