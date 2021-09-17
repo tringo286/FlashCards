@@ -835,26 +835,34 @@ The user entered an account's name that does not exist.
 
 ## Quan
 
-### **13) Test case name:**
+### **13) Test case name: Track hours worked every day.
 
 ### Summary
-
+A user who record of their worked, gain control of their time, and complete the tasks on time.
 #
 
 ### Actors
-
+1. students
+2. professors
 #
 
 ### Preconditions
-
+* Users have their account
+* Users have logged in application
 #
 
 ### Triggers:
-
+Users selected in Time Management option
+Then users selected in Track hours function
 #
 
 ### Primary Sequence
-
+1. System prompt users click start button.
+2. Users click start button to count time.
+3. System gets date of calendar.
+4. System begins count time.
+5. Custorm stop counting time when they want.
+6. System shows record of users.
 #
 
 #
@@ -876,7 +884,7 @@ The user entered an account's name that does not exist.
 #
 
 ### Primary Postconditions
-
+N/A
 #
 
 #
@@ -888,7 +896,7 @@ The user entered an account's name that does not exist.
 #
 
 ### Alternate Sequences
-
+N/A
 #
 
 #
@@ -900,11 +908,11 @@ The user entered an account's name that does not exist.
 #
 
 ### Alternate Trigger
-
+N/A
 #
 
 ### Alternate PostConditions
-
+1. Users see their records everyday.
 #
 
 ## Quan
