@@ -917,26 +917,35 @@ N/A
 
 ## Quan
 
-### **14) Test case name:**
+### **14) Test case name: Visualize hours worked and projects
 
 ### Summary
-
+A user want to see their activities in a day, one month, or one year. 
 #
 
 ### Actors
-
+1. students
+2. professors
 #
 
 ### Preconditions
-
+* Users have their account
+* Users have logged in application
 #
 
 ### Triggers:
-
+Users selected in Time Management option
+Then users selected in Visualize hours function.
 #
 
 ### Primary Sequence
-
+1. System prompt user click on which activities they want to see.
+2. Users click on the activites they want.
+3. System prompt user select the date that they expect to see.
+4. User choose the date that they want.
+5. System show their record user want. 
+6. User back the screen, and they will watch their record if they want.
+7. User come back main screen.
 #
 
 #
@@ -958,7 +967,7 @@ N/A
 #
 
 ### Primary Postconditions
-
+N/A
 #
 
 #
@@ -970,7 +979,7 @@ N/A
 #
 
 ### Alternate Sequences
-
+N/A
 #
 
 #
@@ -982,35 +991,45 @@ N/A
 #
 
 ### Alternate Trigger
-
+N/A
 #
 
 ### Alternate PostConditions
-
+1. Users see their records.
 #
 
 ## Quan
 
-### **15) Test case name:**
+### **15) Test case name: Visualize timeblocks (similar to day view on google calendar)
 
 ### Summary
-
+A user want to see their activities in our calendar that they create by themselve.
 #
 
 ### Actors
-
+1. students
+2. professors
 #
 
 ### Preconditions
-
+* Users have their account
+* Users have logged in application
+* User created a calendar
 #
 
 ### Triggers:
-
+Users selected in Time Management option
+Then users selected in Visualize timeblocks function
 #
 
 ### Primary Sequence
-
+1. System prompt user click on which calendar user want to see.
+2. Users click calendar .
+3. System show user a list event in calendar that user created before.
+4. User click a option of events which they want to see or click all event option.
+5. System show user’s events to review. 
+6. User click exactly on a event.
+7. User back the screen of choosing option screen or quit Visualize timeblocks function.
 #
 
 #
@@ -1032,7 +1051,7 @@ N/A
 #
 
 ### Primary Postconditions
-
+N/A
 #
 
 #
@@ -1044,7 +1063,7 @@ N/A
 #
 
 ### Alternate Sequences
-
+N/A
 #
 
 #
@@ -1060,31 +1079,42 @@ N/A
 #
 
 ### Alternate PostConditions
-
+1. Users see their notes on flash card.
 #
 
 ## Quan
 
-### **16) Test case name:**
+### **16) Test case name: Create time blocks (using markdown)
 
 ### Summary
-
+A user want to create some notes, aware and strategic of how they want to spend their time.
 #
 
 ### Actors
-
+1. students
+2. professors
 #
 
 ### Preconditions
-
+* Users have their account
+* Users have logged in application
 #
 
 ### Triggers:
-
+Users selected in Time Management option
+Then user selected in “create calendar” symbol on top right.
 #
 
 ### Primary Sequence
-
+1. System prompt user input the title of event.
+2. Users type the title.
+3. System prompt user input more specific information for the event.
+4. User write notes down the editor.
+5. System prompt user input date time they want to save, also reminder everyday or everyweek,.. 
+6. User selectes in the date time.
+7. User save it.
+8. System convert the file text under markdown editor (see use case “input a markdown file and output flash cards)
+9. System attatch this event on the calendar.
 #
 
 #
@@ -1106,7 +1136,7 @@ N/A
 #
 
 ### Primary Postconditions
-
+N/A
 #
 
 #
@@ -1118,7 +1148,7 @@ N/A
 #
 
 ### Alternate Sequences
-
+N/A
 #
 
 #
@@ -1130,9 +1160,9 @@ N/A
 #
 
 ### Alternate Trigger
-
+N/A
 #
 
 ### Alternate PostConditions
-
+1. The user input same date that it will ask user to confirm.
 #
