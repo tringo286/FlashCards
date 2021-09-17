@@ -22,11 +22,11 @@ Quan Le - QuanLew (https://github.com/QuanLew)
 2. Must be able to run on web
 3. The app will be in English
 
-# Use Case 
+# Use Cases 
 
 ## Mary
 
-### **1) Test case name: Add To-Do tracker**
+**1) Test case name: Add To-Do tracker**
 
 ## Summary
 
@@ -72,7 +72,11 @@ The user clicks the checkbox next to To-Do tracker item
 
 * The To-Do tracker item is no longer displayed on the tracker
 
-### **2) Test case name: Add tags to notes**
+
+
+
+
+**2) Test case name: Add tags to notes**
 
 ## Summary
 
@@ -115,9 +119,11 @@ The user clicks "Delete Tag"
 
 * The current notes should no longer be related to the other notes containing the deleted tag
 
-## Mary
 
-### **3) Test case name:** Render markdown notes
+
+
+
+**3) Test case name: Render markdown notes**
 
 ## Summary
 
@@ -156,9 +162,11 @@ None
 
 None
 
-## Mary
 
-### **4) Test case name:** Add flashcards to a mind map
+
+
+
+**4) Test case name: Add flashcards to a mind map**
 
 ## Summary
 
@@ -219,29 +227,33 @@ The user clicks "Mind Map"
 2. The Main idea is added to the list of main ideas
 3. The Theme is added to the mind map
 
+
+
+
+
 ## Vlad
 
-### 5) Test Case Name: Input a markdown file and output flash cards.
+**5) Test Case Name: Input a markdown file and output flash cards.**
 
 ## Summary
 
 input a markdown file and output flash cards
 
-### Actors
+## Actors
 
 * The user
 
 * The web site
 
-### Preconditions
+## Preconditions
 
 * A web page dedicated for flash cards
 
-### Triggers:
+## Triggers:
 
 * User clicks on button named "create a flash card"
 
-### Primary Sequence
+## Primary Sequence
 
 1. User clicks on button named "Create a flash card"
 2. Web site lets user to type two inputs: one for question and one for answer
@@ -249,11 +261,11 @@ input a markdown file and output flash cards
 4. User clicks on button named "save"
 5. Web site creates a flash card with the inputs
 
-### Primary Postconditions
+## Primary Postconditions
 
 * A flash card with question and answer
 
-### Alternate Sequences
+## Alternate Sequences
 
 If user left one of inputs empty:
 
@@ -273,29 +285,31 @@ If user left one of inputs empty:
 
 * No alternate post conditions
 
-# Vlad
 
-## 6) Test Case Name: Share flash cards with other people (add to their account)
 
-### Summary
+
+
+**6) Test Case Name: Share flash cards with other people (add to their account)**
+
+## Summary
 
 * Share flash cards with other people (add to their account)
 
-### Actors
+## Actors
 
 * The user 
 
 * The web site
 
-### Preconditions
+## Preconditions
 
 * Have at least one flash card on user's #1 account
 
-### Triggers:
+## Triggers:
 
 User #1 clicks on button called "share flash cards" 
 
-### Primary Sequence
+## Primary Sequence
 
 1. User clicks on button called "share flash cards"
 2. User selects flash cards that he/she wants to share
@@ -303,11 +317,11 @@ User #1 clicks on button called "share flash cards"
 4. Web site opens an input for the name of another account
 5. Web site copy flashcards from user and add them to account with the name from input 
 
-### Primary Postconditions
+## Primary Postconditions
 
 * User sent his flash card to a different account
 
-### Alternate Sequences
+## Alternate Sequences
 
 If user not found:
 
@@ -325,40 +339,42 @@ If user with name from input already had those flash cards:
 
 *  No alternate post conditions
 
-# Vlad
 
-## 7) Test Case Name: Change order of flash cards based on how often user got answer correct
+
+
+
+**7) Test Case Name: Change order of flash cards based on how often user got answer correct**
 
 ## Summary
 
 * Change order of flash cards based on how often user got answer correct
 
-### Actors
+## Actors
 
 * The user
 * The web site
 
-### Preconditions
+## Preconditions
 
 * The user need to have at least 3 flash cards on his account
 * (optional) In settings user's account should have a checkbox "on" for this feature
 
-### Triggers:
+## Triggers:
 
 * User checks the answer of a flash card
 
-### Primary Sequence
+## Primary Sequence
 
 1. When user checks answer, there should be two buttons: "Got it right!" or "Got it wrong"
 2. User pressed on one of the buttons
 3. If user pressed "Got it right" button => count adds +1 to correct answers and shuffle the card in the end of the deck
 4. If user pressed "Got it wrong" button => this card shuffles in the middle (between this card and the end) of the deck.
 
-### Primary Postconditions
+## Primary Postconditions
 
 * User's deck of flash cards shuffled according on which button he/she pressed
 
-### Alternate Sequences
+## Alternate Sequences
 
 * If user didn't press any of the buttons and flips the card back => do nothing
 
@@ -370,39 +386,41 @@ If user with name from input already had those flash cards:
 
 * No alternate postconditions
 
-# Vlad
 
-## 8) Test Case Name: Create a pdf file of flash cards to print
 
-### Summary
+
+
+**8) Test Case Name: Create a pdf file of flash cards to print**
+
+## Summary
 
 Create a pdf file of flash cards to print
 
-### Actors
+## Actors
 
 * The user
 * The web site
 
-### Preconditions
+## Preconditions
 
  User's account must have at least one flash card
 
-### Triggers:
+## Triggers:
 
 * User presses on button "download flash cards"
 
-### Primary Sequence
+## Primary Sequence
 
 1. User presses on button "download flash cards"
 2. Web site create a pdf file and upload there all flash cards with questions and answers
 3. Web site open a new tab and let user to download the file
 4. User presses download, and get the pdf file
 
-### Primary Postconditions
+## Primary Postconditions
 
 * User got a pdf file of all flash cards with questions and answers
 
-### Alternate Sequences
+## Alternate Sequences
 
 * The button to "download" should appear only when at least one flash cards was created
 
@@ -414,187 +432,125 @@ Create a pdf file of flash cards to print
 
 * No alternate postconditions
 
+
+
+
+
 ## Tri
 
-### **9) Test case name: Find text**
+**9) Test case name: Find text**
 
-### Summary
+## Summary
 
 A user who has logged in and entered a file can search text in that file.
 
-### Actors
+## Actors
 
 The user.
 
-### Preconditions
+## Preconditions
 
 The user has logged and entered a file. 
 
-### Triggers:
+## Triggers:
 
 User selects “search” option.
 
-### Primary Sequence
+## Primary Sequence
 
 1. System prompts the user to enter text. 
 2. System searches for the text in the file.
 3. System shows matching results.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Primary Postconditions
+## Primary Postconditions
 
 The system displays a message that searching is completed.
 
-
-
-
-
-
-
-
-
-### Alternate Sequences
+## Alternate Sequences
 
 The user entered text that does not exist.
 
 - The system displays a message that no matches were found. 
 - The system prompts the user to enter a text that exists. 
 
-
-
-
-
-
-
-
-
 ### Alternate Trigger
 
-
+None
 
 ### Alternate PostConditions
 
+None
 
 
-## Tri
 
-### **10) Test case name: Rename files **
 
-### Summary
+
+**10) Test case name: Rename files** 
+
+## Summary
 
 A user who has logged in and can rename any file.
 
-### Actors
+## Actors
 
 The users.
 
-### Preconditions
+## Preconditions
 
 The user has logged in.
 
-### Triggers:
+## Triggers:
 
 User selects “rename” option.
 
-### Primary Sequence
+## Primary Sequence
 
 1. System shows files. 
 2. User select a file and rename it.
 3. System renames the file.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Primary Postconditions
+## Primary Postconditions
 
 The system displays a message that the file was renamed. 
 
-
-
-
-
-
-
-
-
-### Alternate Sequences
+## Alternate Sequences
 
 The user entered an invalid name.
 
 - The system displays an error message to the user.
 - The system prompts the user to enter a valid name.
 
-
-
-
-
-
-
-
-
 ### Alternate Trigger
 
-
+None
 
 ### Alternate PostConditions
 
+None
 
 
-## Tri
 
-### **11) Test case name: Convert notes to pdf  **
 
-### Summary
+
+**11) Test case name: Convert notes to pdf**
+
+## Summary
 
 A user who has logged in can convert notes to pdf.
 
-### Actors
+## Actors
 
 The users
 
-### Preconditions
+## Preconditions
 
 The user has logged in.
 
-### Triggers:
+## Triggers:
 
 User selects “covert” option.
 
-### Primary Sequence
+## Primary Sequence
 
 1. System shows notes. 
 2. User select notes to convert.
@@ -602,242 +558,147 @@ User selects “covert” option.
 4. System prompt locations to save the files. 
 5. User select location. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Primary Postconditions
+## Primary Postconditions
 
 System displays a message that notes were converted to the user.
 
+## Alternate Sequences
 
-
-
-
-
-
-
-
-### Alternate Sequences
-
-
-
-
-
-
-
-
-
-
+None
 
 ### Alternate Trigger
 
-
+None
 
 ### Alternate PostConditions
 
+None
 
 
-## Tri
 
-### **12) Test case name: Share notes  **
 
-### Summary
+
+**12) Test case name: Share notes**
+
+## Summary
 
 A user who has logged in can share notes with other account.
 
-### Actors
+## Actors
 
 The user.
 
-### Preconditions
+## Preconditions
 
 A user has logged in can share notes with other accounts. 
 
-### Triggers:
+## Triggers:
 
 User selects “share” option.
 
-### Primary Sequence
+## Primary Sequence
 
 1. System shows notes. 
 2. User select notes to share.
 3. System prompt the user to enter the account’s name.
 4. System share the notes to other accounts.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Primary Postconditions
+## Primary Postconditions
 
 System displays a message that notes were shared other accounts.
 
-
-
-
-
-
-
-
-
-### Alternate Sequences
+## Alternate Sequences
 
 The user entered an account's name that does not exist. 
 
 - System displays an error message to the user. 
 - System prompt the user to enter a valid account’s name.
 
-
-
-
-
-
-
-
-
 ### Alternate Trigger
 
-
+None
 
 ### Alternate PostConditions
 
+None
 
 
-## Quan
 
-### **13) Test case name: Track hours worked every day.
+**13) Test case name: Track hours worked every day.**
 
-### Summary
+## Summary
+
 A user who record of their worked, gain control of their time, and complete the tasks on time.
-#
 
-### Actors
+## Actors
+
 1. students
 2. professors
-#
 
-### Preconditions
+
+## Preconditions
+
 * Users have their account
 * Users have logged in application
-#
 
-### Triggers:
+
+## Triggers:
+
 Users selected in Time Management option
 Then users selected in Track hours function
-#
 
-### Primary Sequence
+## Primary Sequence
+
 1. System prompt users click start button.
 2. Users click start button to count time.
 3. System gets date of calendar.
 4. System begins count time.
 5. Custorm stop counting time when they want.
 6. System shows record of users.
-#
 
-#
+## Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Primary Postconditions
 N/A
-#
 
-#
+## Alternate Sequences
 
-#
-
-#
-
-#
-
-### Alternate Sequences
 N/A
-#
-
-#
-
-#
-
-#
-
-#
 
 ### Alternate Trigger
+
 N/A
-#
 
 ### Alternate PostConditions
+
 1. Users see their records everyday.
-#
 
-## Quan
 
-### **14) Test case name: Visualize hours worked and projects
 
-### Summary
+
+
+**14) Test case name: Visualize hours worked and projects**
+
+## Summary
+
 A user want to see their activities in a day, one month, or one year. 
-#
 
-### Actors
+## Actors
+
 1. students
 2. professors
-#
 
-### Preconditions
+## Preconditions
+
 * Users have their account
 * Users have logged in application
-#
 
-### Triggers:
+## Triggers:
+
 Users selected in Time Management option
 Then users selected in Visualize hours function.
-#
 
-### Primary Sequence
+## Primary Sequence
+
 1. System prompt user click on which activities they want to see.
 2. Users click on the activites they want.
 3. System prompt user select the date that they expect to see.
@@ -845,83 +706,49 @@ Then users selected in Visualize hours function.
 5. System show their record user want. 
 6. User back the screen, and they will watch their record if they want.
 7. User come back main screen.
-#
 
-#
+## Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Primary Postconditions
 N/A
-#
 
-#
+## Alternate Sequences
 
-#
-
-#
-
-#
-
-### Alternate Sequences
 N/A
-#
-
-#
-
-#
-
-#
-
-#
 
 ### Alternate Trigger
+
 N/A
-#
 
 ### Alternate PostConditions
+
 1. Users see their records.
-#
 
-## Quan
 
-### **15) Test case name: Visualize timeblocks (similar to day view on google calendar)
 
-### Summary
+**15) Test case name: Visualize timeblocks (similar to day view on google calendar)**
+
+## Summary
+
 A user want to see their activities in our calendar that they create by themselve.
-#
 
-### Actors
+## Actors
+
 1. students
 2. professors
-#
 
-### Preconditions
+## Preconditions
+
 * Users have their account
 * Users have logged in application
 * User created a calendar
-#
 
-### Triggers:
+## Triggers:
+
 Users selected in Time Management option
 Then users selected in Visualize timeblocks function
-#
 
-### Primary Sequence
+## Primary Sequence
+
 1. System prompt user click on which calendar user want to see.
 2. Users click calendar .
 3. System show user a list event in calendar that user created before.
@@ -929,80 +756,47 @@ Then users selected in Visualize timeblocks function
 5. System show user’s events to review. 
 6. User click exactly on a event.
 7. User back the screen of choosing option screen or quit Visualize timeblocks function.
-#
 
-#
+## Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Primary Postconditions
 N/A
-#
 
-#
+## Alternate Sequences
 
-#
-
-#
-
-#
-
-### Alternate Sequences
 N/A
-#
-
-#
-
-#
-
-#
-
-#
 
 ### Alternate Trigger
 
-#
+N/A
 
 ### Alternate PostConditions
+
 1. Users see their notes on flash card.
-#
 
-## Quan
 
-### **16) Test case name: Create time blocks (using markdown)
 
-### Summary
+
+
+**16) Test case name: Create time blocks (using markdown)**
+
+## Summary
+
 A user want to create some notes, aware and strategic of how they want to spend their time.
-#
 
-### Actors
+## Actors
+
 1. students
 2. professors
-#
 
-### Preconditions
+## Preconditions
+
 * Users have their account
 * Users have logged in application
-#
 
-### Triggers:
+## Triggers:
+
 Users selected in Time Management option
 Then user selected in “create calendar” symbol on top right.
-#
 
 ### Primary Sequence
 1. System prompt user input the title of event.
@@ -1014,54 +808,19 @@ Then user selected in “create calendar” symbol on top right.
 7. User save it.
 8. System convert the file text under markdown editor (see use case “input a markdown file and output flash cards)
 9. System attatch this event on the calendar.
-#
 
-#
+## Primary Postconditions
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-### Primary Postconditions
 N/A
-#
 
-#
+## Alternate Sequences
 
-#
-
-#
-
-#
-
-### Alternate Sequences
 N/A
-#
-
-#
-
-#
-
-#
-
-#
 
 ### Alternate Trigger
+
 N/A
-#
 
 ### Alternate PostConditions
+
 1. The user input same date that it will ask user to confirm.
-#
