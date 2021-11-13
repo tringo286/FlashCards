@@ -7,5 +7,5 @@ from sqlalchemy import desc
 
 @myapp_obj.route("/", methods=['GET','POST'])
 def home():
-	
-	return render_template('home.html')
+	form = LoginForm()	
+	return render_template('login.html', form=form)
