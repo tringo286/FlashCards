@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		{% if title %} 
+		<title>{{ title }}</title>
+		{% else %}
+		<title> Home </title>
+		{% endif %}
+	</head>
+	<body>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for m in messages %}
+			<strong> {{ m }} </strong>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		{% block content %}
+		{% endblock %}
+	</body>	
+</head>
+</html>
+
