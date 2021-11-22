@@ -1,23 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-	{% for c in top_cities %}
-	<ul>
-	  <li>{{ c.city_name }}</li>
-	</ul>
-	{% endfor %}
-	<form method="POST" novalidate>
-		{{ form.hidden_tag() }}
-
-		<p> {{ form.city_name.label }} <br>
-			{{ form.city_name(size=32) }}
-		</p>
-		<p>	{{ form.city_rank.label }} <br>
-			{{ form.city_rank(size=32) }}
-		</p>
-		<p>	{{ form.is_visited.label }} {{ form.is_visited() }} <p> 
-		<p>	{{ form.submit(size=32) }} </p>
-	<form>	
+<h1>Welcome Home!</h1>	
 {% endblock %}
 

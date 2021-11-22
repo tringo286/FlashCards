@@ -3,18 +3,35 @@
 {% block content %}
 <h1>Sign in</h1>
 
-<form method="POST" novalidate>
+<form method="POST" action = "/login">
     {{ form.hidden_tag() }}
 
-    <p> {{ form.username.label }} <br>
-    {{ form.username(size=32) }}</p>
+    <fieldset class="username">
+        <p> {{ form.username.label }} <br>
+        {{ form.username(size=32) }}</p>
+    </fieldset>
 
-    <p> {{ form.password.label }} <br>
-    {{ form.password(size=32) }}</p>
+    <fieldset class="password">
+        <p> {{ form.password.label }} <br>
+        {{ form.password(size=32) }}</p>
+        {% if form.password.errors %}
+              <ul class="errors">
+                {% for error in form.password.errors %}
+                  <li>{{ error }}</li>{% endfor %}
+              </ul>
+        {% endif %}
+    </fieldset>
 
-    <p> {{ form.remember_me.label }} <br>
-    {{ form.remember_me() }}</p>
 
-    <p>{{ form.submit() }}</p>
+    <fieldset class="remember_me">
+        <p> {{ form.remember_me.label }} <br>
+        {{ form.remember_me() }}</p>
+    </fieldset>
+
+    <fieldset class="submit">
+        <p>{{ form.submit() }}</p>
+    </fieldset>
+    
 </form>
 {% endblock %}
+

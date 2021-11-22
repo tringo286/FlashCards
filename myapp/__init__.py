@@ -3,6 +3,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 
 
+
 #gives current directory of this file
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -17,3 +18,4 @@ myapp_obj.config.from_mapping(
 db = SQLAlchemy(myapp_obj)
 
 from myapp import routes, models
+db.create_all()
