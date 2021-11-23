@@ -47,13 +47,11 @@
   <table class="table">
       <table border="1" width='60%'>
       <colgroup>
-        <col span="1" style="width:5%;">
         <col span="1" style="width:20%;">
         <col span="1" style="width:5%;">
       </colgroup>
       <thead>
       <tr>
-          <th class="task-id">No.</th>
           <th class="task">Task Name</th>
           <th class="status">Status</th>
 
@@ -63,7 +61,6 @@
         <tbody>
             {% for item in list %}
                 <tr>
-                    <td>{{item.id}}</td>
                     <td>{{item.body}}</td>
     
                     {% if item.status == "In Progress" %}
@@ -72,6 +69,7 @@
                                 <option value="In Progress">In Progress</option>
                                 <option value = "/todo/{{ item.body }}">Todo</option>
                                 <option value = "/todo/comp/{{ item.body }}">Complete</option>
+                                <option value = "/todo/delete/{{ item.body }}">Delete</option>
                             </select>
                         
                         </td>
@@ -82,6 +80,7 @@
                                 <option value="Todo">Todo</option>
                                 <option value = "/todo/inprog/{{ item.body }}">In Progress</option>
                                 <option value = "/todo/comp/{{ item.body }}">Complete</option>
+                                <option value = "/todo/delete/{{ item.body }}">Delete</option>
                             </select>
                         </td>
                     {%endif%}
@@ -90,6 +89,7 @@
                             <option value="Complete">Complete</option>
                             <option value = "/todo/inprog/{{ item.body }}">In Progress</option>
                             <option value = "/todo/{{ item.body }}">Todo</option>
+                            <option value = "/todo/delete/{{ item.body }}">Delete</option>
                         </select></td>
                     {%endif%}
                 </tr>

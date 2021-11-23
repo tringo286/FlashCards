@@ -4,7 +4,7 @@ from myapp.forms import LoginForm, SignupForm, ToDoForm
 from flask import render_template, request, flash, redirect
 from myapp.models import User, ToDo, load_user
 from myapp import db
-from sqlalchemy import desc, update, delete
+from sqlalchemy import desc, update, delete, values
 from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/loggedin")
@@ -92,5 +92,14 @@ def complete(item):
 	user_id = current_user.id
 	update = "Complete"
 	db.session.query(ToDo).filter(ToDo.body == task).update({ToDo.status : update })
+	db.session.commit()
+	return redirect("/todo")
+
+@myapp_obj.route("/todo/delete/<string:item>", methods=['GET', 'POST'])
+def deleteTodo(item):
+	task = item
+	user_id = current_user.id
+	update = "Complete"
+	db.session.query(ToDo).filter(ToDo.body == task, ToDo.user_id == user_id).delete(synchronize_session=False)
 	db.session.commit()
 	return redirect("/todo")
