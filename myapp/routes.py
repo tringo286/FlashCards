@@ -1,9 +1,10 @@
+from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
-from myapp.forms import LoginForm, SignupForm
+from myapp.forms import LoginForm, SignupForm, ToDoForm
 from flask import render_template, request, flash, redirect
-from myapp.models import User, ToDo
+from myapp.models import User, ToDo, load_user
 from myapp import db
-from sqlalchemy import desc
+from sqlalchemy import desc, update, delete
 from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/loggedin")
@@ -52,3 +53,44 @@ def signup():
 @myapp_obj.route("/home", methods=['GET','POST'])
 def home():
 	return render_template('home.html')
+
+@myapp_obj.route("/todo", methods=['GET', 'POST'])
+def todo():
+	title = 'To Do List'
+	form=ToDoForm()
+	if form.validate_on_submit():
+		item = form.body.data
+		status = form.status.data
+		user_id = current_user.id
+		todo = ToDo(item, user_id, status)
+		db.session.add(todo)
+		db.session.commit()	
+	list = ToDo.query.filter(ToDo.user_id).order_by(ToDo.status.desc())
+	return render_template('todo.html', title=title, form=form, list=list)
+
+@myapp_obj.route("/todo/inprog/<string:item>", methods=['GET', 'POST'])
+def inProgress(item):
+	task = item
+	user_id = current_user.id
+	update = "In Progress"
+	db.session.query(ToDo).filter(ToDo.body == task).update({ToDo.status : update })
+	db.session.commit()
+	return redirect("/todo")
+
+@myapp_obj.route("/todo/<string:item>", methods=['GET', 'POST'])
+def editTodo(item):
+	task = item
+	user_id = current_user.id
+	update = "Todo"
+	db.session.query(ToDo).filter(ToDo.body == task).update({ToDo.status : update })
+	db.session.commit()
+	return redirect("/todo")
+
+@myapp_obj.route("/todo/comp/<string:item>", methods=['GET', 'POST'])
+def complete(item):
+	task = item
+	user_id = current_user.id
+	update = "Complete"
+	db.session.query(ToDo).filter(ToDo.body == task).update({ToDo.status : update })
+	db.session.commit()
+	return redirect("/todo")

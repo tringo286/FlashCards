@@ -10,7 +10,7 @@ class User(UserMixin, db.Model):
 	username = db.Column(db.String(64), unique=True, index=True)
 	email = db.Column(db.String(128), unique=True)
 	password  = db.Column(db.String(128))
-	todo = db.relationship('ToDo', backref='author', lazy='dynamic')
+	to_do = db.relationship('ToDo', backref='user', lazy='dynamic')
 	
 	def __init__(self, username, email):
 		self.username = username
@@ -27,10 +27,18 @@ class User(UserMixin, db.Model):
 		return check_password_hash(self.password, password)
 		
 class ToDo(db.Model):
+	__tablename__ = 'todo_list'
 	id = db.Column(db.Integer, primary_key=True)
 	body = db.Column(db.String(256))
+	status = db.Column(db.String(30))
 	timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+	def __init__(self, body, user_id, status):
+		self.body = body
+		self.user_id = user_id
+		self.status = status
 
 @login.user_loader
 def load_user(id):
