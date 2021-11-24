@@ -1,11 +1,18 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
+import myapp
 from myapp.forms import LoginForm, SignupForm, ToDoForm
 from flask import render_template, request, flash, redirect
 from myapp.models import User, ToDo, load_user
+from myapp.render import Render
 from myapp import db
+import markdown
 from sqlalchemy import desc, update, delete, values
 from flask_login import current_user, login_user, logout_user, login_required
+
+@myapp_obj.route("/")
+def welcome():
+	return render_template("welcome.html")
 
 @myapp_obj.route("/loggedin")
 @login_required
@@ -34,6 +41,13 @@ def login():
 @myapp_obj.route("/members/<string:name>/")
 def getMember(name):
 	return 'Hi ' + name
+
+@myapp_obj.route("/members/delete")
+def deleteMember():
+	user = current_user.id
+	db.session.query(User).filter(User.id == user).delete(synchronize_session=False)
+	db.session.commit()
+	return login()
 	
 @myapp_obj.route("/signup", methods=['GET','POST'])
 def signup():
@@ -103,3 +117,7 @@ def deleteTodo(item):
 	db.session.query(ToDo).filter(ToDo.body == task, ToDo.user_id == user_id).delete(synchronize_session=False)
 	db.session.commit()
 	return redirect("/todo")
+
+@myapp_obj.route("/render")
+def render():
+	return Render.render('myapp/test.md')
