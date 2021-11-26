@@ -25,4 +25,9 @@ class SearchForm(FlaskForm):
 	result = StringField('Result', validators=[DataRequired()])
 	submit = SubmitField('Search')
 
+class RenameForm(FlaskForm):
+	old_name = StringField('Old name', validators=[DataRequired()])
+	new_name = StringField('New name', validators=[DataRequired()])
+	submit = SubmitField('Update')
+
 
