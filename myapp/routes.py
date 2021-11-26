@@ -1,7 +1,7 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
 import myapp
-from myapp.forms import LoginForm, SignupForm, ToDoForm
+from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm
 from flask import render_template, request, flash, redirect
 from myapp.models import User, ToDo, load_user
 from myapp.render import Render
@@ -121,3 +121,15 @@ def deleteTodo(item):
 @myapp_obj.route("/render")
 def render():
 	return Render.render('myapp/test.md')
+
+@myapp_obj.route("/search", methods=['GET', 'POST'])
+def search():	
+	search = SearchForm()		
+	if search.validate_on_submit():
+		result = User.query.filter_by(username = search.result.data).first()
+		if not result or result is None:	
+			flash('No results found!')			
+			return redirect('/search')
+		flash(f'Result: {search.result.data}') 
+		return redirect('/search')
+	return render_template("search.html", form = search)
