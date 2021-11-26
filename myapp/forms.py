@@ -21,4 +21,8 @@ class ToDoForm(FlaskForm):
         status = SelectField('Status', choices = ['Todo', 'In Progress', 'Complete'])
         submit = SubmitField('Submit')
 
+class SearchForm(FlaskForm):
+	result = StringField('Result', validators=[DataRequired()])
+	submit = SubmitField('Search')
+
 

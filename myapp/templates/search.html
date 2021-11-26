@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Search</h1>
+
+<form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+
+    <p> Find flashcards to study: <br>
+    {{ form.result(size=32) }} <br>
+    <br> {{ form.submit() }}</p>
+
+</form>
+{% endblock %}
