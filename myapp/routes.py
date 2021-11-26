@@ -1,7 +1,7 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
 import myapp
-from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm
+from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm 
 from flask import render_template, request, flash, redirect
 from myapp.models import User, ToDo, load_user
 from myapp.render import Render
@@ -133,3 +133,17 @@ def search():
 		flash(f'Result: {search.result.data}') 
 		return redirect('/search')
 	return render_template("search.html", form = search)
+
+@myapp_obj.route("/rename", methods=['GET', 'POST'])
+def rename():	
+	rename = RenameForm()	
+	if rename.validate_on_submit():
+		result = User.query.filter_by(username = rename.old_name.data).first()
+		if not result or result is None:	
+			flash('No flashcard found!')			
+			return redirect('/rename')		 
+		User.username = request.form['new_name']
+		db.session.commit()
+		flash(f'{rename.old_name.data} was renamed by {rename.new_name.data}') 
+		return redirect('/rename')
+	return render_template("rename.html", form = rename)
