@@ -1,0 +1,81 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="col-xs-10 col-sm-6 col-md-6">
+  <div class="card card-style mb-2">
+    <div class="card-body">
+      <div class="chart-container" style="position: relative">
+        <canvas id="myProjects" width="500" height="500"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-10 col-sm-6 col-md-6">
+  <div class="card card-style mb-2">
+    <div class="card-body">
+      <div class="chart-container" style="position: relative">
+        <canvas id="myHours"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block javascript %}
+<script>
+  const ctx = document.getElementById('myProjects').getContext('2d')
+  const config = new Chart(ctx,{
+      type: 'pie',
+      data:
+          {
+            labels: {{category | tojson}},
+              datasets:[{
+                  data:  {{c_category | tojson}},
+                  backgroundColor: ['#5DA5DA ', '#FAA43A', '#60BD68','#B276B2', '#E16851', '#FB8267'],
+                  borderWidth: 1,
+                  hoverBorderColor: "black",
+                  hoverBorderWidth: 2,
+                  hoverBackgroundColor: 'rgba(154, 245, 140)',
+                  pointHoverRadius: 5
+              }],
+          },
+          options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+              legend: {
+                  position: 'top',
+                  labels: {
+                        position:"right",
+                        fontColor: "gray"
+                  },
+                  display: true,
+              },
+              elements: {
+                  hitRadius: 3,
+              },
+              title: {
+                  display: true,
+                  text: 'My Projects',
+                  fontSize: 20,
+              }
+              }
+          },
+      });
+
+  const ctx1 = document.getElementById('myHours').getContext('2d')
+  const myChart1 = new Chart(ctx1, {
+      type: "line",
+      data:
+          {
+              labels: {{dates | tojson}},
+              datasets: [{
+                  label: "My Hours Worked",
+                  data: {{amounts | tojson}},
+                  fill: false,
+                  borderColor: "rgb(75, 192, 192)",
+                  lineTension: 0.1
+              }]
+          },
+          options: {}
+      });
+</script>
+{% endblock%} {% endblock %}
