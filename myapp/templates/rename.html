@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Rename</h1>
+<a href = "/home">Home</a>
+<h1>Rename markdown file</h1>
 
-<form method="POST" novalidate>
+<form method="POST" enctype=multipart/form-data>
     {{ form.hidden_tag() }}
-
-    <p> Enter flashcard need to rename: <br>
-    {{ form.old_name(size=32) }} <br>
-    <p> Enter new name of the flashcard: <br>
-    {{ form.new_name(size=32) }} <br>
-    <br> {{ form.submit() }}</p>
+    <p> {{ form.file() }} <br>
+    Enter new name: <br>
+    {{ form.new_name(size=32) }} <br> <br>
+    {{ form.submit() }}</p>
 
 </form>
 {% endblock %}
