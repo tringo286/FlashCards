@@ -25,6 +25,18 @@ class User(UserMixin, db.Model):
 
 	def check_password(self, password):
 		return check_password_hash(self.password, password)
+
+class Flashcard(db.Model):
+	id = db.Column(db.Integer, primary_key = True)
+	title = db.Column(db.String(64), unique=True, index=True)
+	body = db.Column(db.String(256))	
+			
+	def __init__(self, title, body):
+		self.title = title
+		self.body = body
+
+	def __repr__(self):
+                return f'<Flashcard {self.id}: {self.title}>'
 		
 class ToDo(db.Model):
 	__tablename__ = 'todo_list'
