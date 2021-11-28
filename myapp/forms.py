@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import (DataRequired, Email, EqualTo, Length)
+from flask_wtf.file import FileField, FileRequired
 
 class LoginForm(FlaskForm):
         __tablename__ = 'users'
@@ -25,10 +26,14 @@ class SearchForm(FlaskForm):
 	result = StringField('Result', validators=[DataRequired()])
 	submit = SubmitField('Search')
 
-class RenameForm(FlaskForm):
-	old_name = StringField('Old name', validators=[DataRequired()])
-	new_name = StringField('New name', validators=[DataRequired()])
-	submit = SubmitField('Update')
+class RenameForm(FlaskForm):		
+	file = FileField('File', validators=[FileRequired()])
+	new_name = StringField('New name', validators=[DataRequired()])	
+	submit = SubmitField('Rename')
+
+class MdToPdfForm(FlaskForm):
+	file = FileField('File', validators=[FileRequired()])	
+	submit = SubmitField('Convert')
 
 
 

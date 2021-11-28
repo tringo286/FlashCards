@@ -3,21 +3,25 @@
 {% block content %}
     <div>
         <h1>Welcome to Study Buddy!</h1>
-        <p>Create and account and you can <br/>
+        <p>With Study Buddy, you can:<br/>
             
             <ul>
-                <li>upload notes</li>
-                <li>create flashcards</li>
-                <li>create a todo list</li>
-                <li>personlize time management tools</li>
+                <li>Upload notes</li>
+                <li>Create flashcards</li>
+                <li>Create a todo list</li>
+		<li>Convert notes to pdf</li>
+		<li>Rename notes and find text in notes</li>
+                <li>Personalize time management tools</li>
             </ul>
         </p>
-        <p>To get started, create and account or login</p>
+        <p>To get started, login to your account</p>
+	<form action="/login">
+            <input type="submit" value="Login" />
+        </form> <br>
+	<p> Don't have an account? </p> 
         <form action="/signup">
             <input type="submit" value="Sign up!" />
         </form>
-        <form action="/login">
-            <input type="submit" value="Login" />
-        </form>
+	
     </div>
 {% endblock %}

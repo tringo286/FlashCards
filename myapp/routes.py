@@ -1,7 +1,8 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
+import myapp
 from datetime import date
-from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm
+from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm 
 from flask import render_template, request, flash, redirect, make_response, session, url_for
 from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity
 from myapp.render import Render
@@ -11,11 +12,12 @@ from sqlalchemy import desc, update, delete, values
 from flask_login import current_user, login_user, logout_user, login_required
 import pdfkit
 from werkzeug.utils import secure_filename
-import os
+import os, sys
 from markdown import markdown
 ALLOWED_EXTENSIONS = {'md'}
-UPLOAD_FOLDER = 'myapp/upload'
+UPLOAD_FOLDER = 'myapp/upload/'
 myapp_obj.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+basedir = 'myapp/text/'
 
 
 @myapp_obj.route("/")
@@ -141,47 +143,32 @@ def deleteTodo(item):
     db.session.commit()
     return redirect("/todo")
 
-
 @myapp_obj.route("/render")
 def render():
     return Render.render('myapp/test.md')
 
-
 @myapp_obj.route("/search", methods=['GET', 'POST'])
-def search():
-    search = SearchForm()
-    if search.validate_on_submit():
-        result = Flashcard.query.filter_by(title=search.result.data).first()
-        if not result or result is None:
-            flash('No results found!')
-            return redirect('/search')
-        flash(f'Result: {search.result.data}')
-        return redirect('/search')
-    return render_template("search.html", form=search)
-
-
-@myapp_obj.route("/rename", methods=['GET', 'POST'])
-def rename():
-    rename = RenameForm()
-    if rename.validate_on_submit():
-        result = Flashcard.query.filter_by(title=rename.old_name.data).first()
-        if not result or result is None:
-            flash('No flashcard found!')
-            return redirect('/rename')
-        Flashcard.title = request.form['new_name']
-        db.session.commit()
-        flash(f'{rename.old_name.data} was renamed by {rename.new_name.data}')
-        return redirect('/rename')
-    return render_template("rename.html", form=rename)
-
+def search():	
+	form = SearchForm()		
+	if form.validate_on_submit():
+		result = form.result.data
+		results = []
+		files = os.listdir(basedir)		
+		for file in files:
+			text = os.path.join(f"{basedir}/{file}")		
+			with open (text, 'r') as f:
+				if result in f.read():
+					results.append(f"{file}")			
+		return render_template("search.html", form=form, results=results)
+	return render_template("search.html", form=form)
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
 @myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
-def mdToPdf():
+def mdToPdf():    
+    form = MdToPdfForm();
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')
@@ -203,16 +190,33 @@ def mdToPdf():
             response = make_response(pdf)
             response.headers["Content-Type"] = "application/pdf"
             response.headers["Content-Disposition"] = "inline; filename = output.pdf"
-            return response
-    return render_template("md_to_pdf.html")
+             return response          
+    return render_template("md_to_pdf.html", form=form)
 
+@myapp_obj.route('/rename', methods=['GET', 'POST'])
+def upload_file():
+    form = RenameForm()
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']        
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], filename))  
+            new_name = request.form['new_name']           
+            os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + new_name + '.md')	   
+            flash(f'Your file was successfully renamed by {form.new_name.data}.md and stored in myapp/upload/') 
+    return render_template("rename.html", form=form)
 
 @myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])
 def index(user_name):
     title_homepage = 'Top Page'
     greeting = user_name
     return render_template("index.html", title_pass=title_homepage, XX=greeting)
-
 
 @myapp_obj.route("/visualizehours", methods=["POST", "GET"])
 def visualize():

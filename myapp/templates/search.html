@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+<a href = "/home">Home</a>
 <h1>Search</h1>
 
 <form method="POST" novalidate>
     {{ form.hidden_tag() }}
 
-    <p> Find flashcards to study: <br>
+    <p> Enter the text you want to find in the path myapp/text/: <br>
     {{ form.result(size=32) }} <br>
     <br> {{ form.submit() }}</p>
 
 </form>
+<h1>Result</h1>
+<ul>
+	{% if results %}
+	<p> <b> The text '{{ form.result.data }}' was found in the file(s) named: </b> </p/>
+	{% for result in results %}
+	<li> {{ result }} </li>
+	{% endfor %}
+	{% else %}
+	<li> No results found!</li>
+	{% endif %}</ul>
 {% endblock %}
