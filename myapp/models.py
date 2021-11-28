@@ -50,10 +50,10 @@ class ToDo(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-  def __init__(self, body, user_id, status):
-    self.body = body
-    self.user_id = user_id
-    self.status = status
+    def __init__(self, body, user_id, status):
+        self.body = body
+        self.user_id = user_id
+        self.status = status
 
 @login.user_loader
 def load_user(id):
