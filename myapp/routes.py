@@ -190,7 +190,7 @@ def mdToPdf():
             response = make_response(pdf)
             response.headers["Content-Type"] = "application/pdf"
             response.headers["Content-Disposition"] = "inline; filename = output.pdf"
-             return response          
+            return response          
     return render_template("md_to_pdf.html", form=form)
 
 @myapp_obj.route('/rename', methods=['GET', 'POST'])
