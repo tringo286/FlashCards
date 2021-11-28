@@ -1,19 +1,18 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1>Welcome Home!</h1>	
+{% extends "base.html" %} {% block content %}
+<h1>Welcome Home!</h1>
 <div>
-<pre class="tab1">
+  
+  <pre class="tab1">
 <a href = "/todo">Look at ToDo list</a>
 <a href = "/search">Find Text</a>
 <a href = "/rename">Rename Markdown file</a>
 <a href = "/markdown-to-pdf">Markdown to pdf</a>
+<a href="{{ url_for('index',user_name=username) }}">Time Management</a>
 </pre>
+
 </div>
 
 <form action="/members/delete">
-   <br><input type="submit" value="Delete Account" />
+  <br /><input type="submit" value="Delete Account" />
 </form>
 {% endblock %}
-
-
