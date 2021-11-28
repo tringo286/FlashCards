@@ -1,12 +1,9 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
 from datetime import date
-import myapp
-
-from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm 
-from flask import render_template, request, flash, redirect, make_response, url_for
+from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm
+from flask import render_template, request, flash, redirect, make_response, session, url_for
 from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity
-
 from myapp.render import Render
 from myapp import db
 import markdown
@@ -40,19 +37,21 @@ def logout():
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
-	form = LoginForm()	
-	if form.validate_on_submit():
-		user = User.query.filter_by(username=form.username.data).first()
-		if user is None or not user.check_password(form.password.data):
-			flash('Login invalid username or password!')
-			return redirect('/login')
-		login_user(user, remember=form.remember_me.data)		
-		return redirect('/home')
-	return render_template('login.html', form=form)
-	
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user is None or not user.check_password(form.password.data):
+            flash('Login invalid username or password!')
+            return redirect('/login')
+        login_user(user, remember=form.remember_me.data)
+        return redirect(url_for('home', username=user))
+    return render_template('login.html', form=form)
+
+
 @myapp_obj.route("/members/<string:name>/")
 def getMember(name):
     return 'Hi ' + name
+
 
 @myapp_obj.route("/members/delete")
 def deleteMember():
@@ -78,9 +77,11 @@ def signup():
         return redirect("/login")
     return render_template('signup.html', form=form)
 
-@myapp_obj.route("/home", methods=['GET', 'POST'])
-def home():
-    return render_template('home.html')
+
+@myapp_obj.route("/home/<string:username>", methods=['GET', 'POST'])
+def home(username):
+    return render_template('home.html', username=username)
+
 
 @myapp_obj.route("/todo", methods=['GET', 'POST'])
 def todo():
@@ -147,83 +148,93 @@ def render():
 
 
 @myapp_obj.route("/search", methods=['GET', 'POST'])
-def search():	
-	search = SearchForm()		
-	if search.validate_on_submit():
-		result = Flashcard.query.filter_by(title = search.result.data).first()
-		if not result or result is None:	
-			flash('No results found!')			
-			return redirect('/search')
-		flash(f'Result: {search.result.data}') 
-		return redirect('/search')
-	return render_template("search.html", form=search)
+def search():
+    search = SearchForm()
+    if search.validate_on_submit():
+        result = Flashcard.query.filter_by(title=search.result.data).first()
+        if not result or result is None:
+            flash('No results found!')
+            return redirect('/search')
+        flash(f'Result: {search.result.data}')
+        return redirect('/search')
+    return render_template("search.html", form=search)
+
 
 @myapp_obj.route("/rename", methods=['GET', 'POST'])
-def rename():	
-	rename = RenameForm()	
-	if rename.validate_on_submit():
-		result = Flashcard.query.filter_by(title = rename.old_name.data).first()
-		if not result or result is None:	
-			flash('No flashcard found!')			
-			return redirect('/rename')		 
-		Flashcard.title = request.form['new_name']
-		db.session.commit()
-		flash(f'{rename.old_name.data} was renamed by {rename.new_name.data}') 
-		return redirect('/rename')
-	return render_template("rename.html", form=rename)
+def rename():
+    rename = RenameForm()
+    if rename.validate_on_submit():
+        result = Flashcard.query.filter_by(title=rename.old_name.data).first()
+        if not result or result is None:
+            flash('No flashcard found!')
+            return redirect('/rename')
+        Flashcard.title = request.form['new_name']
+        db.session.commit()
+        flash(f'{rename.old_name.data} was renamed by {rename.new_name.data}')
+        return redirect('/rename')
+    return render_template("rename.html", form=rename)
+
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
-def mdToPdf():    
-    if request.method == 'POST':        
+def mdToPdf():
+    if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        file = request.files['file']        
+        file = request.files['file']
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)           
-            file.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], filename))
-            input_file = 'myapp/upload/' + filename            
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(
+                myapp_obj.config['UPLOAD_FOLDER'], filename))
+            input_file = 'myapp/upload/' + filename
             output_file = input_file.split(".md")
             output_file = output_file[0] + '.pdf'
             with open(input_file, 'r') as f:
-            	html = markdown(f.read(), output_format='html4')
+                html = markdown(f.read(), output_format='html4')
             pdf = pdfkit.from_string(html, False)
-            response = make_response (pdf)
+            response = make_response(pdf)
             response.headers["Content-Type"] = "application/pdf"
             response.headers["Content-Disposition"] = "inline; filename = output.pdf"
-            return response          
+            return response
     return render_template("md_to_pdf.html")
-  
-@myapp_obj.route("/index")
-def index():
+
+
+@myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])
+def index(user_name):
     title_homepage = 'Top Page'
-    greeting = "Quan"
+    greeting = user_name
     return render_template("index.html", title_pass=title_homepage, XX=greeting)
+
 
 @myapp_obj.route("/visualizehours", methods=["POST", "GET"])
 def visualize():
     title_homepage = 'Top Page'
     categories = ['Math', 'Physics', 'English', 'Computer']
+    exists = db.session.query(User.id).filter_by(
+        username='morning').first() is not None
 
-    u1 = User(username='morning', email='m@gmail.com')
-    db.session.add(u1)
-    db.session.commit()
-    u2 = User(username='evening', email='n@gmail.com')
-    db.session.add(u2)
-    db.session.commit()
+    if not exists:
+        user1 = User(username='morning',
+                     email='m@gmail.com')
+        db.session.add(user1)
+        db.session.commit()
+        user2 = User(username='evening',
+                     email='e@gmail.com')
+        db.session.add(user2)
+        db.session.commit()
 
-    u1 = User.query.filter_by(username=u1.username).first()
-    u2 = User.query.filter_by(username=u2.username).first()
+    u1 = User.query.filter_by(username='morning').first()
+    u2 = User.query.filter_by(username='evening').first()
 
     if u1 is not None:
-        today = date.today()
         a = Activity(timeamount=135, owner=u1)
         db.session.add(a)
         db.session.commit()
@@ -274,8 +285,6 @@ def visualize():
         data_acitivity = db.session.query(Activity.timeamount, Activity.usertime).group_by(
             Activity.usertime).order_by(Activity.usertime).filter(Activity.owner_id == u1.id).all()
 
-    print(f'data: {data_flashcard}')
-
     category_labels = []
     count_category_labels = []
     for count_ctr, ctr in data_flashcard:
@@ -290,6 +299,26 @@ def visualize():
 
     return render_template("visualizehours.html", amounts=amount_labels, dates=date_labels,
                            category=category_labels, c_category=count_category_labels)
-    
 
 
+@myapp_obj.route("/trackhours", methods=["POST", "GET"])
+def trackinghours():
+    u1 = User.query.filter_by(username='morning').first()
+    data_flashcard = db.session.query(FlashCard.id, FlashCard.times_created, FlashCard.title, FlashCard.category).order_by(
+        FlashCard.times_created.desc()).filter(FlashCard.owner_id == u1.id).all()
+
+    date_labels = []
+    for _, dates, _, _ in data_flashcard:
+        temp_date = dates.strftime("%m-%d-%Y")
+        if temp_date not in date_labels:
+            date_labels.append(temp_date)
+    print(date_labels)
+    return render_template("trackhours.html", entries=data_flashcard, current_dates=date_labels[0], list_dates=date_labels)
+
+
+@myapp_obj.route('/delete-post/<int:entry_id>')
+def delete(entry_id):
+    entry = FlashCard.query.get_or_404(int(entry_id))
+    db.session.delete(entry)
+    db.session.commit()
+    return redirect(url_for("trackinghours"))
