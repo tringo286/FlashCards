@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if flash_cards %}
+  {% for card in flash_cards %}
+    <h3>Question #{{card.id}}:</h3>
+    <b>{{card.question}}</b>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+        <p>
+            {{ form.answer(size=32) }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+
+    </form>
+    <p>
+      {{checker}}
+    </p>
+    <hr>
+    <form method="get" action="/question/{{card.id + 1}}"">
+        <button type="submit">next</button>
+    </form>
+  {% endfor %}
+  {% else %}
+   <a href="/flashcards">click here</a>
+  {% endif %}
+{% endblock %}
