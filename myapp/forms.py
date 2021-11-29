@@ -35,7 +35,7 @@ class MdToPdfForm(FlaskForm):
 	file = FileField('File', validators=[FileRequired()])
 	submit = SubmitField('Convert')
 
-class FlashCards  (FlaskForm):
+class FlashCards(FlaskForm):
     question = StringField()
     answer = StringField(validators=[DataRequired()])
     submit = SubmitField("Submit")

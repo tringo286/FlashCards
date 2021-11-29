@@ -2,13 +2,13 @@ from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
 import myapp
 from datetime import date
-from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm
+from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards
 from flask import render_template, request, flash, redirect, make_response, session, url_for
-from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity
+from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity, Cards
 from myapp.render import Render
 from myapp import db
 import markdown
-from sqlalchemy import desc, update, delete, values
+from sqlalchemy import desc, update, delete, values, func
 from flask_login import current_user, login_user, logout_user, login_required
 import pdfkit
 from werkzeug.utils import secure_filename
@@ -327,7 +327,7 @@ def delete(entry_id):
     db.session.commit()
     return redirect(url_for("trackinghours"))
 
-@myobj.route("/flashcards", methods = ["POST", "GET"])
+@myapp_obj.route("/flashcards", methods = ["POST", "GET"])
 def flashcards():
     title = "Flash Cards"
     form = FlashCards()
@@ -339,7 +339,7 @@ def flashcards():
     cards = Cards.query.order_by(Cards.order.asc()).all()
     return render_template("flashcards.html", title = title, form = form, flash_cards = cards)
 
-@myobj.route("/question/<num>", methods = ["POST", "GET"])
+@myapp_obj.route("/question/<num>", methods = ["POST", "GET"])
 def question(num):
     title = "Question" + num
     form = FlashCards()
