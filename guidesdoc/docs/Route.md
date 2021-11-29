@@ -1,45 +1,26 @@
-from sqlalchemy.sql.expression import delete
-from myapp import myapp_obj
-
-from datetime import date
-from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm
-from flask import render_template, request, flash, redirect, make_response, session, url_for
-from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity
-from myapp.render import Render
-from myapp import db
-import markdown
-from sqlalchemy import desc, update, delete, values
-from flask_login import current_user, login_user, logout_user, login_required
-import pdfkit
-from werkzeug.utils import secure_filename
-import os
-import sys
-from markdown import markdown
-ALLOWED_EXTENSIONS = {'md'}
-UPLOAD_FOLDER = 'myapp/upload/'
-myapp_obj.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-basedir = 'myapp/text/'
-
-
 @myapp_obj.route("/")
 def welcome():
+
     return render_template("welcome.html")
 
 
 @myapp_obj.route("/loggedin")
 @login_required
 def log():
+
     return 'Hi you are logged in'
 
 
 @myapp_obj.route("/logout")
 def logout():
+
     logout_user()
     return redirect('/')
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -53,11 +34,13 @@ def login():
 
 @myapp_obj.route("/members/<string:name>/")
 def getMember(name):
+
     return 'Hi ' + name
 
 
 @myapp_obj.route("/members/delete")
 def deleteMember():
+
     user = current_user.id
     db.session.query(User).filter(
         User.id == user).delete(synchronize_session=False)
@@ -67,6 +50,7 @@ def deleteMember():
 
 @myapp_obj.route("/signup", methods=['GET', 'POST'])
 def signup():
+
     form = SignupForm()
     if form.validate_on_submit():
         flash(f'Welcome!')
@@ -83,11 +67,13 @@ def signup():
 
 @myapp_obj.route("/home/<string:username>", methods=['GET', 'POST'])
 def home(username):
+
     return render_template('home.html', username=username)
 
 
 @myapp_obj.route("/todo", methods=['GET', 'POST'])
 def todo():
+
     title = 'To Do List'
     form = ToDoForm()
     if form.validate_on_submit():
@@ -103,6 +89,7 @@ def todo():
 
 @myapp_obj.route("/todo/inprog/<string:item>", methods=['GET', 'POST'])
 def inProgress(item):
+
     task = item
     user_id = current_user.id
     update = "In Progress"
@@ -114,6 +101,7 @@ def inProgress(item):
 
 @myapp_obj.route("/todo/<string:item>", methods=['GET', 'POST'])
 def editTodo(item):
+
     task = item
     user_id = current_user.id
     update = "Todo"
@@ -125,6 +113,7 @@ def editTodo(item):
 
 @myapp_obj.route("/todo/comp/<string:item>", methods=['GET', 'POST'])
 def complete(item):
+
     task = item
     user_id = current_user.id
     update = "Complete"
@@ -136,6 +125,7 @@ def complete(item):
 
 @myapp_obj.route("/todo/delete/<string:item>", methods=['GET', 'POST'])
 def deleteTodo(item):
+
     task = item
     user_id = current_user.id
     update = "Complete"
@@ -147,11 +137,13 @@ def deleteTodo(item):
 
 @myapp_obj.route("/render")
 def render():
+
     return Render.render('myapp/test.md')
 
 
 @myapp_obj.route("/search", methods=['GET', 'POST'])
 def search():
+
     form = SearchForm()
     if form.validate_on_submit():
         result = form.result.data
@@ -167,12 +159,14 @@ def search():
 
 
 def allowed_file(filename):
+
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
 def mdToPdf():
+
     form = MdToPdfForm()
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -201,6 +195,7 @@ def mdToPdf():
 
 @myapp_obj.route('/rename', methods=['GET', 'POST'])
 def upload_file():
+
     form = RenameForm()
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -224,6 +219,7 @@ def upload_file():
 
 @myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])
 def index(user_name):
+
     title_homepage = 'Top Page'
     greeting = user_name
     return render_template("index.html", title_pass=title_homepage, XX=greeting)
@@ -231,6 +227,20 @@ def index(user_name):
 
 @myapp_obj.route("/visualizehours", methods=["POST", "GET"])
 def visualize():
+
+    """
+    This class represent for handling visualize hours feature
+    
+    Parameters:
+    ----------
+        username: get from homepage
+        activity: filter by username
+        flashcard: filter by username
+    Return:
+    ------
+        Perform a page with charts
+    """
+
     title_homepage = 'Top Page'
     categories = ['Math', 'Physics', 'English', 'Computer']
     exists = db.session.query(User.id).filter_by(
@@ -318,6 +328,18 @@ def visualize():
 
 @myapp_obj.route("/trackhours", methods=["POST", "GET"])
 def trackinghours():
+
+    """
+    This class represent for handling tracking hours feature
+    
+    Parameters:
+    ----------
+        username: get from homepage
+        flashcard: filter by username
+    Return:
+    ------
+        Perform a page with tables that show their activities
+    """
     u1 = User.query.filter_by(username='morning').first()
     data_flashcard = db.session.query(FlashCard.id, FlashCard.times_created, FlashCard.title, FlashCard.category).order_by(
         FlashCard.times_created.desc()).filter(FlashCard.owner_id == u1.id).all()
@@ -333,6 +355,17 @@ def trackinghours():
 
 @myapp_obj.route('/delete-post/<int:entry_id>')
 def delete(entry_id):
+
+    """
+    This class represent for handling delete from table in tracking hour feature
+    
+    Parameters:
+    ----------
+        entry_id: int
+    Return:
+    ------
+        redirect user to tracking hours page
+    """
     entry = FlashCard.query.get_or_404(int(entry_id))
     db.session.delete(entry)
     db.session.commit()
