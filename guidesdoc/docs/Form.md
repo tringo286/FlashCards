@@ -32,7 +32,13 @@ class ToDoForm(FlaskForm):
 class SearchForm(FlaskForm):
        
 	"""
+	This class creates a search form for the find-text-in-files feature
 
+            Parameters:
+                    result (StringField): A single line of text
+                    sumbit (SubmitField): A submit button 
+            Returns:
+                    Show a search form for the find-text-in-files feature
 	"""
 	result = StringField('Result', validators=[DataRequired()])
 	submit = SubmitField('Search')
@@ -40,7 +46,14 @@ class SearchForm(FlaskForm):
 class RenameForm(FlaskForm):
 
 	"""
+	This class creates a rename form for the rename-file feature
 
+            Parameters:
+                    file (FileField): A file
+		    new_name(StringField): A single line of text
+                    sumbit (SubmitField): A submit button 
+            Returns:
+                    Show a rename form for the rename-file feature
 	"""			
 	file = FileField('File', validators=[FileRequired()])
 	new_name = StringField('New name', validators=[DataRequired()])	
@@ -49,7 +62,13 @@ class RenameForm(FlaskForm):
 class MdToPdfForm(FlaskForm):
 
 	"""
+	This class creates a markdown-to-pdf form for the markdown-to-pdf feature
 
+            Parameters:
+                    file (FileField): A file		    
+                    sumbit (SubmitField): A submit button 
+            Returns:
+                    Show a markdown-to-pdf form for the markdown-to-pdf feature
 	"""
 	file = FileField('File', validators=[FileRequired()])	
 	submit = SubmitField('Convert')
