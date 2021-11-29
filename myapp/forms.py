@@ -26,15 +26,16 @@ class SearchForm(FlaskForm):
 	result = StringField('Result', validators=[DataRequired()])
 	submit = SubmitField('Search')
 
-class RenameForm(FlaskForm):		
+class RenameForm(FlaskForm):
 	file = FileField('File', validators=[FileRequired()])
-	new_name = StringField('New name', validators=[DataRequired()])	
+	new_name = StringField('New name', validators=[DataRequired()])
 	submit = SubmitField('Rename')
 
 class MdToPdfForm(FlaskForm):
-	file = FileField('File', validators=[FileRequired()])	
+	file = FileField('File', validators=[FileRequired()])
 	submit = SubmitField('Convert')
 
-
-
-
+class FlashCards(FlaskForm):
+    question = StringField()
+    answer = StringField(validators=[DataRequired()])
+    submit = SubmitField("Submit")

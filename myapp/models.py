@@ -77,3 +77,13 @@ class FlashCard(db.Model):
     count_category = db.Column(db.Integer, nullable=False, default=1)
     times_created = db.Column(db.DateTime, default=datetime.utcnow)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+class Cards(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.String(64))
+    answer = db.Column(db.String(64))
+    order = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f'<Cards {self.question}>'

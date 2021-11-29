@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <li><a href="javascript:history.back()">Go Back</a></li>
+    <li><a href="/">Go Home</a></li>
+    <hr>
+    {% for card in flash_cards %}
+      <b>Card#{{card.id}}:</b>
+      <p>{{card.question}}</p>
+      <p>Answer: {{card.answer}}</>
+      <hr>
+    {% endfor %}
+    <h3> Create a card </h3>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+        <p>
+            {{ form.question.label }} <br>
+            {{ form.question(size=32) }}
+        </p>
+        <p>
+            {{ form.answer.label }} <br>
+            {{ form.answer(size=32) }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+    <hr>
+    <form method="get" action="/question/1">
+        <button type="submit">Start Quiz</button>
+    </form>
+{% endblock %}

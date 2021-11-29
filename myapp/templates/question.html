@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <li><a href="javascript:history.back()">Go Back</a></li>
+  <li><a href="/flashcards">Go to Flash Cards</a></li>
+  <li><a href="/">Go Home</a></li>
+  <hr>
+  {% if flash_cards %}
+  {% for card in flash_cards %}
+    <h3>Question #{{card.id}}:</h3>
+    <ul><b>{{card.question}}</b></ul>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+        <p>
+            {{ form.answer(size=32) }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+
+    </form>
+    <p>
+      {{checker}}
+    </p>
+    <hr>
+    <form method="get" action="/question/{{card.id + 1}}"">
+        <button type="submit">next</button>
+    </form>
+  {% endfor %}
+  {% else %}
+   <a href="/flashcards">click here</a>
+  {% endif %}
+{% endblock %}
