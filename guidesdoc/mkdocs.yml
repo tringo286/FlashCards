@@ -1,0 +1,5 @@
+site_name: Study Buddy
+site_url: ""
+nav:
+  - Home: index.md
+  - Guide: classes-functions.md
