@@ -143,7 +143,14 @@ def render():
 
 @myapp_obj.route("/search", methods=['GET', 'POST'])
 def search():
+    """
+    This function creates a route for the find-text-in-files feature
 
+            Parameters:
+                    text: get form the input box                   
+            Returns:
+                    Show a page for the find-text-in-files feature
+    """
     form = SearchForm()
     if form.validate_on_submit():
         result = form.result.data
@@ -166,7 +173,14 @@ def allowed_file(filename):
 
 @myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
 def mdToPdf():
+    """
+    This function creates a route for the markdown-to-pdf feature
 
+            Parameters:
+                    file: browse from user's directory                    
+            Returns:
+                    Show a page for the markdown-to-pdf feature
+    """
     form = MdToPdfForm()
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -195,7 +209,15 @@ def mdToPdf():
 
 @myapp_obj.route('/rename', methods=['GET', 'POST'])
 def upload_file():
+    """
+    This function creates a route for the rename-file feature
 
+            Parameters:
+                    file: browse from user's directory 
+                    new_name: get from input box
+            Returns:
+                    Show a page for the rename-file feature
+    """
     form = RenameForm()
     if request.method == 'POST':
         if 'file' not in request.files:
