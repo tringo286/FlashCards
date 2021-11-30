@@ -225,6 +225,18 @@ def index(user_name):
 
 @myapp_obj.route("/visualizehours", methods=["POST", "GET"])
 def visualize():
+	"""
+	This class represent for handling visualize hours feature
+
+	Parameters:
+	----------
+	    username: get from homepage
+	    activity: filter by username
+	    flashcard: filter by username
+	Return:
+	------
+	    Perform a page with charts
+	"""
     title_homepage = 'Top Page'
     categories = ['Math', 'Physics', 'English', 'Computer']
     exists = db.session.query(User.id).filter_by(
@@ -312,6 +324,17 @@ def visualize():
 
 @myapp_obj.route("/trackhours", methods=["POST", "GET"])
 def trackinghours():
+	"""
+	This class represent for handling tracking hours feature
+
+	Parameters:
+	----------
+	    username: get from homepage
+	    flashcard: filter by username
+	Return:
+	------
+	    Perform a page with tables that show their activities
+	"""
     u1 = User.query.filter_by(username='morning').first()
     data_flashcard = db.session.query(FlashCard.id, FlashCard.times_created, FlashCard.title, FlashCard.category).order_by(
         FlashCard.times_created.desc()).filter(FlashCard.owner_id == u1.id).all()
@@ -327,6 +350,16 @@ def trackinghours():
 
 @myapp_obj.route('/delete-post/<int:entry_id>')
 def delete(entry_id):
+	"""
+	This class represent for handling delete from table in tracking hour feature
+
+	Parameters:
+	----------
+	    entry_id: int
+	Return:
+	------
+	    redirect user to tracking hours page
+	"""
     entry = FlashCard.query.get_or_404(int(entry_id))
     db.session.delete(entry)
     db.session.commit()
