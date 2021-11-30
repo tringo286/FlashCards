@@ -145,9 +145,16 @@ def deleteTodo(item):
 
 
 @myapp_obj.route("/render")
-def render():
-    return Render.render('myapp/test.md')
+def rendering():
+    basedir = 'myapp/upload/'
+    files = os.listdir(basedir)
+    return render_template('render.html', files=files)
 
+@myapp_obj.route("/render/<string:file>")
+def renderer(file):
+    file_path = "myapp/upload/" + file
+    html = Render.render(file_path)
+    return html
 
 @myapp_obj.route("/search", methods=['GET', 'POST'])
 def search():
