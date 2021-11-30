@@ -5,17 +5,17 @@ from flask_wtf.file import FileField, FileRequired
 
 class LoginForm(FlaskForm):
         """
-        This class creates a user login form
+    This class creates a user login form
 
-        Parameters:
-            username (StringField): A single line of text for user to input name
-            password (PasswordField): A single line of text for users to enter password
-            remember_me (BooleanField): a checkbox 
-            submit (SubmitField)
+            Parameters:
+                    username (StringField): A single line of text for user to input name
+                    password (PasswordField): A single line of text for users to enter password
+                    remember_me (BooleanField): a checkbox 
+                    submit (SubmitField)
 
-        Returns:
-            Show a login form
-        """
+            Returns:
+                    Show a login form
+    """
         __tablename__ = 'users'
         username = StringField('Username', validators=[DataRequired()])
         password = PasswordField('Password', validators=[DataRequired()])
@@ -24,7 +24,7 @@ class LoginForm(FlaskForm):
 
 class SignupForm(FlaskForm):
         """
-        This class creates a user signup form
+         This class creates a user signup form
 
             Parameters:
                     username (StringField): A single line of text for user to input name
@@ -59,7 +59,7 @@ class ToDoForm(FlaskForm):
         submit = SubmitField('Submit')
 
 class SearchForm(FlaskForm):
-	"""
+        """
 	This class creates a search form for the find-text-in-files feature
 
             Parameters:
@@ -69,10 +69,10 @@ class SearchForm(FlaskForm):
                     Show a search form for the find-text-in-files feature
 	"""
         result = StringField('Result', validators=[DataRequired()])
-	submit = SubmitField('Search')
+        submit = SubmitField('Search')
 
-class RenameForm(FlaskForm):
-	"""
+class RenameForm(FlaskForm):	
+        """
 	This class creates a rename form for the rename-file feature
 
             Parameters:
@@ -83,11 +83,11 @@ class RenameForm(FlaskForm):
                     Show a rename form for the rename-file feature
 	"""		
         file = FileField('File', validators=[FileRequired()])
-	new_name = StringField('New name', validators=[DataRequired()])
-	submit = SubmitField('Rename')
+        new_name = StringField('New name', validators=[DataRequired()])
+        submit = SubmitField('Rename')
 
 class MdToPdfForm(FlaskForm):
-	"""
+        """
 	This class creates a markdown-to-pdf form for the markdown-to-pdf feature
 
             Parameters:
@@ -97,9 +97,9 @@ class MdToPdfForm(FlaskForm):
                     Show a markdown-to-pdf form for the markdown-to-pdf feature
 	"""
         file = FileField('File', validators=[FileRequired()])
-	submit = SubmitField('Convert')
+        submit = SubmitField('Convert')
 
 class FlashCards(FlaskForm):
-    question = StringField()
-    answer = StringField(validators=[DataRequired()])
-    submit = SubmitField("Submit")
+        question = StringField()
+        answer = StringField(validators=[DataRequired()])
+        submit = SubmitField("Submit")
