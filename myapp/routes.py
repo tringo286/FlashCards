@@ -281,6 +281,9 @@ def renderpage():
 
 @myapp_obj.route("/render/<string:file>")
 def render(file):
+    """
+    Render selected markdown file
+    """
     file_path = "myapp/upload/" + file
     html = Render.render(file_path)
     return html
