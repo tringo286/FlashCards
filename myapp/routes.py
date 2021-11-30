@@ -22,23 +22,63 @@ basedir = 'myapp/text/'
 
 @myapp_obj.route("/")
 def welcome():
+    """
+    This function returns the welcome.html page
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        redirect user to welcome page
+    """
     return render_template("welcome.html")
 
 
 @myapp_obj.route("/loggedin")
 @login_required
 def log():
+    """
+    This function returns 'Hi you are logged in' and requires the user to be logged in (@login_required)
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        "Hi you are logged in"
+    """
     return 'Hi you are logged in'
 
 
 @myapp_obj.route("/logout")
 def logout():
+    """
+    This function logs out the user
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        redirects to '/'
+    """
     logout_user()
     return redirect('/')
 
 
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
+    """
+    This function returns the login page with the LoginForm
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        on successful login redirects to 'home.html'
+    """
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -52,11 +92,31 @@ def login():
 
 @myapp_obj.route("/members/<string:name>/")
 def getMember(name):
+    """
+    This function returns the user's name
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        Hi + user's name
+    """
     return 'Hi ' + name
 
 
 @myapp_obj.route("/members/delete")
 def deleteMember():
+    """
+    This function deletes a user from the database
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        redirects to login page
+    """
     user = current_user.id
     db.session.query(User).filter(
         User.id == user).delete(synchronize_session=False)
@@ -66,6 +126,16 @@ def deleteMember():
 
 @myapp_obj.route("/signup", methods=['GET', 'POST'])
 def signup():
+    """
+    This function returns the signup page with the SignUpForm
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        redirects to login.html
+    """
     form = SignupForm()
     if form.validate_on_submit():
         flash(f'Welcome!')
@@ -82,11 +152,31 @@ def signup():
 
 @myapp_obj.route("/home/<string:username>", methods=['GET', 'POST'])
 def home(username):
+    """
+    This function goes to user's home page
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        redirects to user's homepage
+    """
     return render_template('home.html', username=username)
 
 
 @myapp_obj.route("/todo", methods=['GET', 'POST'])
 def todo():
+    """
+    This function returns the ToDo list page with the ToDoForm
+
+    Parameters:
+    ----------
+        none
+    Return:
+    ------
+        redirect to todo.html
+    """
     title = 'To Do List'
     form = ToDoForm()
     if form.validate_on_submit():
@@ -102,6 +192,16 @@ def todo():
 
 @myapp_obj.route("/todo/inprog/<string:item>", methods=['GET', 'POST'])
 def inProgress(item):
+    """
+    This function changes the todo list item to status: In Progress
+
+    Parameters:
+    ----------
+        item (string): todo list item's body
+    Return:
+    ------
+        redirect to todo.html
+    """
     task = item
     user_id = current_user.id
     update = "In Progress"
@@ -113,6 +213,16 @@ def inProgress(item):
 
 @myapp_obj.route("/todo/<string:item>", methods=['GET', 'POST'])
 def editTodo(item):
+    """
+    This function changes the todo list item to status: Todo
+
+    Parameters:
+    ----------
+        item (string): todo list item's body
+    Return:
+    ------
+        redirect to todo.html
+    """
     task = item
     user_id = current_user.id
     update = "Todo"
@@ -124,6 +234,16 @@ def editTodo(item):
 
 @myapp_obj.route("/todo/comp/<string:item>", methods=['GET', 'POST'])
 def complete(item):
+    """
+    This function changes the todo list item to status: Complete
+
+    Parameters:
+    ----------
+        item (string): todo list item's body
+    Return:
+    ------
+        redirect to todo.html
+    """
     task = item
     user_id = current_user.id
     update = "Complete"
@@ -135,6 +255,16 @@ def complete(item):
 
 @myapp_obj.route("/todo/delete/<string:item>", methods=['GET', 'POST'])
 def deleteTodo(item):
+    """
+    This function deletes a task from the ToDo list
+
+    Parameters:
+    ----------
+        item (string): todo list item's body
+    Return:
+    ------
+        redirect to todo.html
+    """
     task = item
     user_id = current_user.id
     update = "Complete"
