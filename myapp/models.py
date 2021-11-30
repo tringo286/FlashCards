@@ -14,6 +14,7 @@ class User(UserMixin, db.Model):
     to_do = db.relationship('ToDo', backref='user', lazy='dynamic')
     activities = db.relationship('Activity', backref="owner", lazy='dynamic')
     flaskcards = db.relationship('FlashCard', backref='owner', lazy='dynamic')
+    card = db.relationship('Cards', backref='user', lazy='dynamic')
 
     def __init__(self, username, email):
         self.username = username
@@ -79,11 +80,11 @@ class FlashCard(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 class Cards(db.Model):
-
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(64))
     answer = db.Column(db.String(64))
     order = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
         return f'<Cards {self.question}>'

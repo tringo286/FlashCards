@@ -1,5 +1,6 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
+import myapp
 from datetime import date
 from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards
 from flask import render_template, request, flash, redirect, make_response, session, url_for
@@ -11,8 +12,7 @@ from sqlalchemy import desc, update, delete, values, func
 from flask_login import current_user, login_user, logout_user, login_required
 import pdfkit
 from werkzeug.utils import secure_filename
-import os
-import sys
+import os, sys
 from markdown import markdown
 ALLOWED_EXTENSIONS = {'md'}
 UPLOAD_FOLDER = 'myapp/upload/'
@@ -273,7 +273,6 @@ def deleteTodo(item):
     db.session.commit()
     return redirect("/todo")
 
-
 @myapp_obj.route("/render")
 def renderpage():
     basedir = 'myapp/upload/'
@@ -307,7 +306,7 @@ def allowed_file(filename):
 
 @myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
 def mdToPdf():
-    form = MdToPdfForm()
+    form = MdToPdfForm();
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')
@@ -332,7 +331,6 @@ def mdToPdf():
             return response
     return render_template("md_to_pdf.html", form=form)
 
-
 @myapp_obj.route('/rename', methods=['GET', 'POST'])
 def upload_file():
     form = RenameForm()
@@ -352,13 +350,11 @@ def upload_file():
             flash(f'Your file was successfully renamed by {form.new_name.data}.md and stored in myapp/upload/')
     return render_template("rename.html", form=form)
 
-
 @myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])
 def index(user_name):
     title_homepage = 'Top Page'
     greeting = user_name
     return render_template("index.html", title_pass=title_homepage, XX=greeting)
-
 
 @myapp_obj.route("/visualizehours", methods=["POST", "GET"])
 def visualize():
@@ -472,18 +468,19 @@ def delete(entry_id):
 @myapp_obj.route("/flashcards", methods = ["POST", "GET"])
 def flashcards():
     title = "Flash Cards"
+    user_id = current_user.id
     form = FlashCards()
     if form.validate_on_submit():
-        cards = Cards(question = form.question.data, answer = form.answer.data, order = db.session.query(Cards).count())
+        cards = Cards(question = form.question.data, answer = form.answer.data, order = db.session.query(Cards).count(), user_id = user_id)
         db.session.add(cards)
         db.session.commit()
-        return redirect("/")
-    cards = Cards.query.order_by(Cards.order.asc()).all()
+        return redirect("/flashcards")
+    cards = Cards.query.filter(Cards.user_id).order_by(Cards.order.asc()).all()
     return render_template("flashcards.html", title = title, form = form, flash_cards = cards)
 
 @myapp_obj.route("/question/<num>", methods = ["POST", "GET"])
 def question(num):
-    title = "Question" + num
+    title = "Question " + num
     form = FlashCards()
     checker = ""
     first_card = db.session.query(func.min(Cards.order)).scalar()

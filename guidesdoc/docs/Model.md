@@ -65,7 +65,20 @@ class Flashcard(db.Model):
 class ToDo(db.Model):
 
     """
+    This class represents a ToDo list item in the database
+    
+    Attributes:
+    ----------
+    id: int (primary key)
+    body: string 
+    status: string
+    timestamp: DateTime
+    user_id: Integer (foreign key)
+    
 
+    Function:
+    ---------
+    __init__: constructor with 3 parameter body, user_id, and status 
     """
 
     __tablename__ = 'todo_list'

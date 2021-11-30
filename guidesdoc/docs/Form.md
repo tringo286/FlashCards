@@ -1,8 +1,18 @@
 class LoginForm(FlaskForm):
 	
-        """
+    """
+    This class creates a user login form
 
-	"""
+            Parameters:
+                    username (StringField): A single line of text for user to input name
+                    password (PasswordField): A single line of text for users to enter password
+                    remember_me (BooleanField): a checkbox 
+                    submit (SubmitField)
+
+            Returns:
+                    Show a login form
+    """
+
         __tablename__ = 'users'
         username = StringField('Username', validators=[DataRequired()])
         password = PasswordField('Password', validators=[DataRequired()])
@@ -11,9 +21,20 @@ class LoginForm(FlaskForm):
 
 class SignupForm(FlaskForm):
 
-        """
+     """
+    This class creates a user signup form
 
-	"""
+            Parameters:
+                    username (StringField): A single line of text for user to input name
+                    email (StringField): A single line of text for users to input email
+                    password (PasswordField): A single line of text for users to enter password
+                    confirm (PasswordFeild): A single line of text for users to re-enter password
+                    submit (SubmitField)
+
+            Returns:
+                    Show a signup form
+    """
+
         username = StringField('Username', validators=[DataRequired()])
         email = StringField('Email', validators=[DataRequired()])
         password = PasswordField('Password', validators=[DataRequired(), Length(min=6, message='Select a stronger password.')])
@@ -22,9 +43,18 @@ class SignupForm(FlaskForm):
 
 class ToDoForm(FlaskForm):
        
-	"""
+     """
+    This class creates a todo list item form
 
-	"""
+            Parameters:
+                    body (StringField): A single line text field for user to enter todo item
+                    status (SelectField): A list of Status' to choose from
+                    submit (SubmitField): Submit button
+
+            Returns:
+                    Show a todo list form
+    """
+
         body = StringField('To Do Item', validators=[DataRequired()])
         status = SelectField('Status', choices = ['Todo', 'In Progress', 'Complete'])
         submit = SubmitField('Submit')
