@@ -6,6 +6,26 @@ from myapp import login
 
 
 class User(UserMixin, db.Model):
+    """
+    This class represent for User table in database
+
+    Attributes:
+    ----------
+    id: int (primary key)
+    username: string
+    email: string
+    password: string
+    to_do: object (foreign key)
+    activities: Object (foreign key)
+    flaskcard: Object (foreign key)
+
+    Function:
+    ---------
+    __init__: constructor with 2 parameter username, email
+    __repr__: representation a output
+    set_password: auto generate password
+    check_password: get and check password
+    """
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, index=True)
@@ -61,6 +81,16 @@ def load_user(id):
 
 
 class Activity(db.Model):
+    """
+    This class represent for Activity table in database
+
+    Attributes:
+    ----------
+    id: int (primary key)
+    timeamount: int
+    usertime: datetime
+    owner_id: Object (foreign key)
+    """
     __tablename__ = 'user_activity'
     id = db.Column(db.Integer, primary_key=True)
     timeamount = db.Column(db.Integer, nullable=False)
@@ -69,6 +99,19 @@ class Activity(db.Model):
 
 
 class FlashCard(db.Model):
+    """
+    This class represent for FlashCard table in database
+
+    Attributes:
+    ----------
+    id: int (primary key)
+    title: string
+    defination: string
+    category: string
+    count_catergory: int
+    times_created: datetime
+    owner_id: Object (foreign key)
+    """
     __tablename__ = 'user_flaskcard'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(64), nullable=False)
