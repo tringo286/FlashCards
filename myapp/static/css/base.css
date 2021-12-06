@@ -1,0 +1,36 @@
+html, body{
+    font-size: 20px;
+    font-family: Arial;
+    color: black;    
+}
+
+.center {
+    text-align: center;    
+}
+
+fieldset {
+    background-color: #eeeeee;  
+    display: inline-block; 
+    border-radius: 15px;    
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor:pointer;
+    border-radius: 12px; 
+}
+
+.error {
+    color: red;
+    font-size: 13px;    
+}
+  
+
+  

@@ -153,6 +153,7 @@ def signup():
 
 @myapp_obj.route("/home/<string:username>", methods=['GET', 'POST'])
 def home(username):
+    
     """
     This function goes to user's home page
 
@@ -163,11 +164,12 @@ def home(username):
     ------
         redirects to user's homepage
     """
-    return render_template('home.html', username=username)
+    
+    return render_template('home.html',username=username)
 
 
-@myapp_obj.route("/todo", methods=['GET', 'POST'])
-def todo():
+@myapp_obj.route("/todo/<string:username>", methods=['GET', 'POST'])
+def todo(username):
     """
     This function returns the ToDo list page with the ToDoForm
 
@@ -188,7 +190,7 @@ def todo():
         db.session.add(todo)
         db.session.commit()
     list = ToDo.query.filter(ToDo.user_id).order_by(ToDo.status.desc())
-    return render_template('todo.html', title=title, form=form, list=list)
+    return render_template('todo.html', title=title, form=form, list=list, username=username)
 
 
 @myapp_obj.route("/todo/inprog/<string:item>", methods=['GET', 'POST'])
@@ -332,8 +334,9 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
-def mdToPdf():
+@myapp_obj.route('/markdown-to-pdf/<string:username>', methods=['GET', 'POST'])
+def markdown_to_pdf(username):
+   
     """
     This function creates a route for the markdown-to-pdf feature
 
@@ -365,11 +368,11 @@ def mdToPdf():
             response.headers["Content-Type"] = "application/pdf"
             response.headers["Content-Disposition"] = "inline; filename = output.pdf"
             return response
-    return render_template("md_to_pdf.html", form=form)
+    return render_template("markdown_to_pdf.html", form=form, username=username)
 
 
-@myapp_obj.route('/rename', methods=['GET', 'POST'])
-def upload_file():
+@myapp_obj.route('/rename/<string:username>', methods=['GET', 'POST'])
+def rename(username):
     """
     This function creates a route for the rename-file feature
 
@@ -379,25 +382,9 @@ def upload_file():
             Returns:
                     Show a page for the rename-file feature
     """
+
     form = RenameForm()
-    if request.method == 'POST':
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(
-                myapp_obj.config['UPLOAD_FOLDER'], filename))
-            new_name = request.form['new_name']
-            os.rename(UPLOAD_FOLDER + filename,
-                      UPLOAD_FOLDER + new_name + '.md')
-            flash(
-                f'Your file was successfully renamed by {form.new_name.data}.md and stored in myapp/upload/')
-    return render_template("rename.html", form=form)
+    return render_template("rename.html", form=form, username= username)
 
 
 @myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])

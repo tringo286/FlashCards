@@ -1,12 +1,12 @@
-{% extends "base.html" %} {% block content %}
+{% extends "layout.html" %} {% block content %}
 <h1>Welcome Home!</h1>
 <div>
 
-  <pre class="tab1">
-<a href = "/todo">Look at ToDo list</a>
+<pre class="tab1">
+<a href = "{{ url_for('todo',username=username) }}">Look at ToDo list</a>
 <a href = "/search">Find Text</a>
-<a href = "/rename">Rename Markdown file</a>
-<a href = "/markdown-to-pdf">Markdown to pdf</a>
+<a href = "{{ url_for('rename',username=username) }}">Rename Markdown file</a>
+<a href = "{{ url_for('markdown_to_pdf',username=username) }}">Markdown to pdf</a>
 <a href="{{ url_for('index',user_name=username) }}">Time Management</a>
 <a href = "/flashcards">Practice with Flash Cards</a>
 <a href = "/render">Render Files</a>

@@ -1,37 +1,69 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- CSS -->
+		<link rel="stylesheet" href="static/base.css">		
+		<title> Login </title>			
+	</head>	
+	<body>
+        <p><a href = "/"><img
+            src="/static/img/backpack.png"
+            width="32"
+            height="28"
+            class="d-inline-block align-text-top"
+          /></a></p>
+        <div class = "center">        
+            <form method="POST" action = "/login">
+                {{ form.hidden_tag() }}
 
-{% block content %}
-<h1>Log in</h1>
-<a href = "/">Welcome Page</a> <br> <br>
+                <fieldset>
+                    <strong> <p style="font-size:30px">Log In</p> </strong>
+                    <p style="text-align:left;"> {{ form.username.label }} <br>
+                    {{ form.username(placeholder="Enter your username", style='width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 10px;
+                    box-sizing: border-box;') }} </p> 
 
-<form method="POST" action = "/login">
-    {{ form.hidden_tag() }}
+                    <p style="text-align:left;"> {{ form.password.label }} <br>                
+                    {{ form.password(size=32, placeholder="Enter your password", style='width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 10px;
+                    box-sizing: border-box;') }}</p>
+                    {% if form.password.errors %}
+                        <ul class="errors">
+                            {% for error in form.password.errors %}
+                            <li>{{ error }}</li>{% endfor %}
+                        </ul>
+                    {% endif %} 
+                    
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% for category, message in messages %}
+                            <div class="{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endwith %}                   
+                
+                    <p style="text-align:left;"> {{ form.remember_me.label(style='font-size: 15px;') }} {{ form.remember_me() }}</p>  
+                    <p> {{ form.submit(style='width: 100%;
+                        background-color: #4CAF50;
+                        color: white;
+                        padding: 14px 20px;
+                        margin: 8px 0;
+                        border: none;
+                        border-radius: 25px;
+                        cursor: pointer;
+                        font-size: 20px;') }}</p>
+                    <p style="font-size:15px">Need an account? <a href = "/signup" style="text-decoration: none; color: #4CAF50;">Sign Up</a></p>
+                </fieldset>        
+        </div>  		
+	</body>	
+</head>
+</html>
+ 
 
-    <fieldset class="username">
-        <p> {{ form.username.label }} <br>
-        {{ form.username(size=32) }}</p>
-    </fieldset>
-
-    <fieldset class="password">
-        <p> {{ form.password.label }} <br>
-        {{ form.password(size=32) }}</p>
-        {% if form.password.errors %}
-              <ul class="errors">
-                {% for error in form.password.errors %}
-                  <li>{{ error }}</li>{% endfor %}
-              </ul>
-        {% endif %}
-    </fieldset>
-
-
-    <fieldset class="remember_me">
-        <p> {{ form.remember_me.label }} <br>
-        {{ form.remember_me() }}</p>
-    </fieldset>
-
-    <fieldset class="submit">
-        <p>{{ form.submit() }}</p>
-    </fieldset>
-    
-{% endblock %}
 
