@@ -559,7 +559,7 @@ def flashcards(username):
                       order=db.session.query(Cards).count(), user_id=user_id)
         db.session.add(cards)
         db.session.commit()
-        return redirect("/flashcards")
+        return redirect(url_for('flashcards',username=username))
     cards = Cards.query.filter(Cards.user_id).order_by(Cards.order.asc()).all()
     return render_template("flashcards.html", title=title, form=form, flash_cards=cards, username=username)
 
@@ -573,7 +573,7 @@ def question(num, username):
     cards = Cards.query.filter(Cards.id == num)
     if Cards.query.filter(Cards.answer == form.answer.data).first():
         checker = "Correct!"
-        return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker)
+        return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker, username=username)
     if Cards.query.filter(form.answer.data != None).first():
         checker = "Incorrect"
         order_update = Cards.query.filter_by(
