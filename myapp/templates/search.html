@@ -1,25 +1,25 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
-<a href="javascript:history.back()">Go Back</a>
-<h1>Search</h1>
+<h2>Search</h2>
+	<div>
+		<form method="POST" novalidate>
+			{{ form.hidden_tag() }}
+			<p> Enter the text you want to find in the path myapp/text/: </p>		
+			<p>{{ form.result(size=40) }} </p>
+			<p>{{ form.submit() }}</p> 
+		</form>
+	</div>	
 
-<form method="POST" novalidate>
-    {{ form.hidden_tag() }}
-
-    <p> Enter the text you want to find in the path myapp/text/: <br>
-    {{ form.result(size=32) }} <br>
-    <br> {{ form.submit() }}</p>
-
-</form>
-<h1>Result</h1>
-<ul>
-	{% if results %}
-	<p> <b> The text '{{ form.result.data }}' was found in the file(s) named: </b> </p/>
-	{% for result in results %}
-	<li> {{ result }} </li>
-	{% endfor %}
-	{% else %}
-	<li> No results found!</li>
-	{% endif %}</ul>
+<h2>Result</h2>
+	<ul>
+		{% if results %}
+		<p> <b> The text '{{ form.result.data }}' was found in the file(s) named: </b> </p>
+		{% for result in results %}
+		<li> {{ result }} </li>
+		{% endfor %}
+		{% else %}
+		<li> No results found!</li>
+		{% endif %}
+	</ul>
 {% endblock %}

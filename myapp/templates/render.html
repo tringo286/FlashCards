@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% block content %}
+{% extends "layout.html" %} {% block content %}
 
 <ul>
     {% for file in files %}
     <li>
-        <a href="/render/{{ file }}">
+        <a href="{{ url_for('render',file=file, username=username) }}">
             {{ file }}
         </a>
     </li>

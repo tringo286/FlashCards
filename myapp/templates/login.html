@@ -2,16 +2,16 @@
 <html>
 	<head>
 		<!-- CSS -->
-		<link rel="stylesheet" href="static/base.css">		
+		<link rel="stylesheet" href="static/css/base.css">		
 		<title> Login </title>			
 	</head>	
 	<body>
-        <p><a href = "/"><img
+        <p><a href = "/" style="text-decoration: none; color:black;"><img
             src="/static/img/backpack.png"
-            width="32"
+            width="32"  
             height="28"
             class="d-inline-block align-text-top"
-          /></a></p>
+          />StudyBuddy</a></p>
         <div class = "center">        
             <form method="POST" action = "/login">
                 {{ form.hidden_tag() }}

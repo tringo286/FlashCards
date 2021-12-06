@@ -84,7 +84,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Login invalid username or password!')
+            flash('Incorrect username or password!', 'error')
             return redirect('/login')
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('home', username=user))
@@ -122,7 +122,7 @@ def deleteMember():
     db.session.query(User).filter(
         User.id == user).delete(synchronize_session=False)
     db.session.commit()
-    return login()
+    return redirect("/")
 
 
 @myapp_obj.route("/signup", methods=['GET', 'POST'])
@@ -277,8 +277,8 @@ def deleteTodo(item):
     return redirect("/todo")
 
 
-@myapp_obj.route("/render")
-def renderpage():
+@myapp_obj.route("/render/<string:username>")
+def renderpage(username):
     """
     This function prints out a list of files that have been uploaded
 
@@ -291,11 +291,11 @@ def renderpage():
     """
     basedir = 'myapp/upload/'
     files = os.listdir(basedir)
-    return render_template('render.html', files=files)
+    return render_template('render.html', files=files, username=username)
 
 
-@myapp_obj.route("/render/<string:file>")
-def render(file):
+@myapp_obj.route("/render/<string:file>/<string:username>")
+def render(file, username):
     """
     Render selected markdown file
     """
@@ -304,8 +304,8 @@ def render(file):
     return html
 
 
-@myapp_obj.route("/search", methods=['GET', 'POST'])
-def search():
+@myapp_obj.route("/search<string:username>", methods=['GET', 'POST'])
+def search(username):
     """
     This function creates a route for the find-text-in-files feature
 
@@ -325,7 +325,7 @@ def search():
                 if result in f.read():
                     results.append(f"{file}")
         return render_template("search.html", form=form, results=results)
-    return render_template("search.html", form=form)
+    return render_template("search.html", form=form, username=username)
 
 
 def allowed_file(filename):
@@ -382,8 +382,21 @@ def rename(username):
             Returns:
                     Show a page for the rename-file feature
     """
-
     form = RenameForm()
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']        
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], filename))  
+            new_name = request.form['new_name']           
+            os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + new_name + '.md')	   
+            flash(f'Your file was successfully renamed by {form.new_name.data}.md and stored in the path myapp/upload/')
     return render_template("rename.html", form=form, username= username)
 
 
@@ -537,8 +550,8 @@ def delete(entry_id):
     return redirect(url_for("trackinghours"))
 
 
-@myapp_obj.route("/flashcards", methods=["POST", "GET"])
-def flashcards():
+@myapp_obj.route("/flashcards/<string:username>", methods=["POST", "GET"])
+def flashcards(username):
     title = "Flash Cards"
     user_id = current_user.id
     form = FlashCards()
@@ -549,11 +562,11 @@ def flashcards():
         db.session.commit()
         return redirect("/flashcards")
     cards = Cards.query.filter(Cards.user_id).order_by(Cards.order.asc()).all()
-    return render_template("flashcards.html", title=title, form=form, flash_cards=cards)
+    return render_template("flashcards.html", title=title, form=form, flash_cards=cards, username=username)
 
 
-@myapp_obj.route("/question/<num>", methods=["POST", "GET"])
-def question(num):
+@myapp_obj.route("/question/<num>/<string:username>", methods=["POST", "GET"])
+def question(num, username):
     title = "Question " + num
     form = FlashCards()
     checker = ""
@@ -567,4 +580,4 @@ def question(num):
         order_update = Cards.query.filter_by(
             id=num).update(dict(order=first_card - 1))
         db.session.commit()
-    return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker)
+    return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker, username=username)

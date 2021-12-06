@@ -1,25 +1,17 @@
-{% extends "layout.html" %} {% block content %}
-<h1>Welcome Home!</h1>
-<div>
+{% extends "layout.html" %} 
+  
+{% block content %}
 
-<pre class="tab1">
-<a href = "{{ url_for('todo',username=username) }}">Look at ToDo list</a>
-<a href = "/search">Find Text</a>
-<a href = "{{ url_for('rename',username=username) }}">Rename Markdown file</a>
-<a href = "{{ url_for('markdown_to_pdf',username=username) }}">Markdown to pdf</a>
-<a href="{{ url_for('index',user_name=username) }}">Time Management</a>
-<a href = "/flashcards">Practice with Flash Cards</a>
-<a href = "/render">Render Files</a>
-</pre>
-
-</div> 
-
-<form action="/logout">
-  <br /><input type="submit" value="Log out" />
-</form>
-
-<form action="/members/delete">
-  <br /><input type="submit" value="Delete Account" />
-</form>
+  <div style="text-align: center; font-size: 25px;">
+    <p><a href = "{{ url_for('todo',username=username) }}">Look at ToDo list</a></p>
+    <p><a href = "{{ url_for('search',username=username) }}">Find Text</a></p>
+    <p><a href = "{{ url_for('rename',username=username) }}">Rename Markdown file</a></p>
+    <p><a href = "{{ url_for('markdown_to_pdf',username=username) }}">Markdown to pdf</a></p>
+    <p><a href = "{{ url_for('trackinghours',user_name=username) }}">Tracking Hour</a></p>
+    <p><a href = "{{ url_for('visualize',user_name=username) }}">Visualize Project</a></p>
+    <p><a href = "{{ url_for('flashcards',username=username) }}">Practice with Flash Cards</a></p>
+    <p><a href = "{{ url_for('renderpage',username=username) }}">Render Files</a></p>
+    
+  </div> 
 
 {% endblock %}

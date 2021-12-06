@@ -1,12 +1,10 @@
-{% extends "base.html" %}
-{% block content %}
-    <li><a href="javascript:history.back()">Go Back</a></li>
-    <li><a href="/">Go Home</a></li>
+{% extends "layout.html" %}
+{% block content %}    
     <hr>
     {% for card in flash_cards %}
       <b>Card#{{card.id}}:</b>
       <p>{{card.question}}</p>
-      <p>Answer: {{card.answer}}</>
+      <p>Answer: {{card.answer}}
       <hr>
     {% endfor %}
     <h3> Create a card </h3>
@@ -25,7 +23,7 @@
         </p>
     </form>
     <hr>
-    <form method="get" action="/question/1">
+    <form method="get" action="{{ url_for('question',num=1, username=username) }}">
         <button type="submit">Start Quiz</button>
     </form>
 {% endblock %}

@@ -1,15 +1,19 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<br> <a href="javascript:history.back()">Go Back</a>
-<h1>Rename markdown file</h1>
-
-<form method="POST" enctype=multipart/form-data>
-    {{ form.hidden_tag() }}
-    <p> {{ form.file() }} <br>
-    Enter new name: <br>
-    {{ form.new_name(size=32) }} <br> <br>
-    {{ form.submit() }}</p>
-
-</form>
+<h2>Rename Markdown file</h2>
+    <form method="POST" enctype=multipart/form-data>
+        {{ form.hidden_tag() }}
+        <p> {{ form.file() }} <br>
+        Enter new name: <br>
+        {{ form.new_name(size=32) }} <br> <br>
+        {{ form.submit() }}</p>
+    </form>
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endwith %} 
+    </div>
 {% endblock %}
