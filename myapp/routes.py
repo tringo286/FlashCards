@@ -1,6 +1,5 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
-import myapp
 from datetime import date
 from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards
 from flask import render_template, request, flash, redirect, make_response, session, url_for
