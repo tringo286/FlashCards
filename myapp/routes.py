@@ -12,7 +12,8 @@ from sqlalchemy import desc, update, delete, values, func
 from flask_login import current_user, login_user, logout_user, login_required
 import pdfkit
 from werkzeug.utils import secure_filename
-import os, sys
+import os
+import sys
 from markdown import markdown
 ALLOWED_EXTENSIONS = {'md'}
 UPLOAD_FOLDER = 'myapp/upload/'
@@ -32,7 +33,7 @@ def welcome():
     ------
         redirect user to welcome page
     """
-    return render_template("welcome.html")
+    return render_template("splashpage.html")
 
 
 @myapp_obj.route("/loggedin")
@@ -273,6 +274,7 @@ def deleteTodo(item):
     db.session.commit()
     return redirect("/todo")
 
+
 @myapp_obj.route("/render")
 def renderpage():
     """
@@ -289,6 +291,7 @@ def renderpage():
     files = os.listdir(basedir)
     return render_template('render.html', files=files)
 
+
 @myapp_obj.route("/render/<string:file>")
 def render(file):
     """
@@ -297,6 +300,7 @@ def render(file):
     file_path = "myapp/upload/" + file
     html = Render.render(file_path)
     return html
+
 
 @myapp_obj.route("/search", methods=['GET', 'POST'])
 def search():
@@ -310,21 +314,23 @@ def search():
     """
     form = SearchForm()
     if form.validate_on_submit():
-    	result = form.result.data
-    	results = []
-    	files = os.listdir(basedir)
-    	for file in files:
-    		text = os.path.join(f"{basedir}/{file}")
-    		with open (text, 'r') as f:
-    			if result in f.read():
-    				results.append(f"{file}")
-    	return render_template("search.html", form=form, results=results)
+        result = form.result.data
+        results = []
+        files = os.listdir(basedir)
+        for file in files:
+            text = os.path.join(f"{basedir}/{file}")
+            with open(text, 'r') as f:
+                if result in f.read():
+                    results.append(f"{file}")
+        return render_template("search.html", form=form, results=results)
     return render_template("search.html", form=form)
+
 
 def allowed_file(filename):
 
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @myapp_obj.route('/markdown-to-pdf', methods=['GET', 'POST'])
 def mdToPdf():
@@ -336,7 +342,7 @@ def mdToPdf():
             Returns:
                     Show a page for the markdown-to-pdf feature
     """
-    form = MdToPdfForm();
+    form = MdToPdfForm()
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')
@@ -361,6 +367,7 @@ def mdToPdf():
             return response
     return render_template("md_to_pdf.html", form=form)
 
+
 @myapp_obj.route('/rename', methods=['GET', 'POST'])
 def upload_file():
     """
@@ -383,11 +390,15 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(
+                myapp_obj.config['UPLOAD_FOLDER'], filename))
             new_name = request.form['new_name']
-            os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + new_name + '.md')
-            flash(f'Your file was successfully renamed by {form.new_name.data}.md and stored in myapp/upload/')
+            os.rename(UPLOAD_FOLDER + filename,
+                      UPLOAD_FOLDER + new_name + '.md')
+            flash(
+                f'Your file was successfully renamed by {form.new_name.data}.md and stored in myapp/upload/')
     return render_template("rename.html", form=form)
+
 
 @myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])
 def index(user_name):
@@ -395,11 +406,12 @@ def index(user_name):
     greeting = user_name
     return render_template("index.html", title_pass=title_homepage, XX=greeting)
 
+
 @myapp_obj.route("/visualizehours", methods=["POST", "GET"])
 def visualize():
     """
     This class represent for handling visualize hours feature
-    
+
     Parameters:
     ----------
         username: get from homepage
@@ -498,7 +510,7 @@ def visualize():
 def trackinghours():
     """
     This class represent for handling tracking hours feature
-    
+
     Parameters:
     ----------
         username: get from homepage
@@ -524,7 +536,7 @@ def trackinghours():
 def delete(entry_id):
     """
     This class represent for handling delete from table in tracking hour feature
-    
+
     Parameters:
     ----------
         entry_id: int
@@ -537,31 +549,35 @@ def delete(entry_id):
     db.session.commit()
     return redirect(url_for("trackinghours"))
 
-@myapp_obj.route("/flashcards", methods = ["POST", "GET"])
+
+@myapp_obj.route("/flashcards", methods=["POST", "GET"])
 def flashcards():
     title = "Flash Cards"
     user_id = current_user.id
     form = FlashCards()
     if form.validate_on_submit():
-        cards = Cards(question = form.question.data, answer = form.answer.data, order = db.session.query(Cards).count(), user_id = user_id)
+        cards = Cards(question=form.question.data, answer=form.answer.data,
+                      order=db.session.query(Cards).count(), user_id=user_id)
         db.session.add(cards)
         db.session.commit()
         return redirect("/flashcards")
     cards = Cards.query.filter(Cards.user_id).order_by(Cards.order.asc()).all()
-    return render_template("flashcards.html", title = title, form = form, flash_cards = cards)
+    return render_template("flashcards.html", title=title, form=form, flash_cards=cards)
 
-@myapp_obj.route("/question/<num>", methods = ["POST", "GET"])
+
+@myapp_obj.route("/question/<num>", methods=["POST", "GET"])
 def question(num):
     title = "Question " + num
     form = FlashCards()
     checker = ""
     first_card = db.session.query(func.min(Cards.order)).scalar()
     cards = Cards.query.filter(Cards.id == num)
-    if Cards.query.filter(Cards.answer==form.answer.data).first():
+    if Cards.query.filter(Cards.answer == form.answer.data).first():
         checker = "Correct!"
-        return render_template("question.html", title = title, form = form, flash_cards = cards, checker = checker)
+        return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker)
     if Cards.query.filter(form.answer.data != None).first():
         checker = "Incorrect"
-        order_update = Cards.query.filter_by(id=num).update(dict(order= first_card - 1))
+        order_update = Cards.query.filter_by(
+            id=num).update(dict(order=first_card - 1))
         db.session.commit()
-    return render_template("question.html", title = title, form = form, flash_cards = cards, checker = checker)
+    return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker)
