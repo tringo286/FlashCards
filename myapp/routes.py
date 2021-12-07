@@ -1,9 +1,11 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
-import datetime
-from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards
+
+from datetime import date
+from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards, AddTag
+
 from flask import render_template, request, flash, redirect, make_response, session, url_for
-from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity, Cards
+from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity, Cards, Notes
 from myapp.render import Render
 from myapp import db
 import markdown
@@ -237,14 +239,15 @@ def inProgress(item):
     """
     task = item
     user_id = current_user.id
+    username = current_user.username
     update = "In Progress"
     db.session.query(ToDo).filter(
         ToDo.body == task).update({ToDo.status: update})
     db.session.commit()
-    return redirect("/todo")
+    return redirect("/todo/<string:username>")
 
 
-@ myapp_obj.route("/todo/<string:item>", methods=['GET', 'POST'])
+@myapp_obj.route("/todo/update/<string:item>", methods=['GET', 'POST'])
 def editTodo(item):
     """
     This function changes the todo list item to status: Todo
@@ -258,11 +261,12 @@ def editTodo(item):
     """
     task = item
     user_id = current_user.id
+    username = current_user.username
     update = "Todo"
     db.session.query(ToDo).filter(
         ToDo.body == task).update({ToDo.status: update})
     db.session.commit()
-    return redirect("/todo")
+    return redirect("/todo/<string:username>")
 
 
 @ myapp_obj.route("/todo/comp/<string:item>", methods=['GET', 'POST'])
@@ -279,11 +283,12 @@ def complete(item):
     """
     task = item
     user_id = current_user.id
+    username = current_user.username
     update = "Complete"
     db.session.query(ToDo).filter(
         ToDo.body == task).update({ToDo.status: update})
     db.session.commit()
-    return redirect("/todo")
+    return redirect("/todo/<string:username>")
 
 
 @ myapp_obj.route("/todo/delete/<string:item>", methods=['GET', 'POST'])
@@ -300,11 +305,12 @@ def deleteTodo(item):
     """
     task = item
     user_id = current_user.id
+    username = current_user.username
     update = "Complete"
     db.session.query(ToDo).filter(ToDo.body == task,
                                   ToDo.user_id == user_id).delete(synchronize_session=False)
     db.session.commit()
-    return redirect("/todo")
+    return redirect("/todo/<string:username>")
 
 
 @ myapp_obj.route("/render/<string:username>")
@@ -387,6 +393,15 @@ def markdown_to_pdf(username):
             file.save(os.path.join(
                 myapp_obj.config['UPLOAD_FOLDER'], filename))
             input_file = 'myapp/upload/' + filename
+
+            # add file to db
+            body = Render.render(input_file)
+            user_id = current_user.id
+            aNote = Notes(filename, user_id, body )
+            db.session.add(aNote)
+            db.session.commit()
+
+            #resume code
             output_file = input_file.split(".md")
             output_file = output_file[0] + '.pdf'
             with open(input_file, 'r') as f:
@@ -552,6 +567,7 @@ def flashcards(username):
         db.session.add(cards)
         db.session.commit()
         return redirect(url_for('flashcards', username=username))
+
     cards = Cards.query.filter(Cards.user_id).order_by(Cards.order.asc()).all()
     return render_template("flashcards.html", title=title, form=form, flash_cards=cards, username=username)
 
@@ -565,10 +581,34 @@ def question(num, username):
     cards = Cards.query.filter(Cards.id == num)
     if Cards.query.filter(Cards.answer == form.answer.data).first():
         checker = "Correct!"
-        return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker)
+        return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker, username=username)
     if Cards.query.filter(form.answer.data != None).first():
         checker = "Incorrect"
         order_update = Cards.query.filter_by(
             id=num).update(dict(order=first_card - 1))
         db.session.commit()
     return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker, username=username)
+
+
+@myapp_obj.route('/addtags/<string:username>', methods=["POST", "GET"])
+def addtags(username):
+    form = AddTag()
+    if form.validate_on_submit():
+        file = form.note.data
+        tag = form.tag.data
+        user_id = current_user.id
+        db.session.query(Notes).filter(
+        Notes.name == file).update({Notes.tag: tag})
+        db.session.commit()
+    files = Notes.query.all()
+    return render_template("addtags.html", form=form, files=files)
+
+@myapp_obj.route('/renderfile/<string:file>', methods=["POST", "GET"])
+def renderfile(file):
+    html = Render.render(file)
+    return render_template("showfile.html", html=html)
+
+@myapp_obj.route('/tag/<string:tag>', methods=["GET"])
+def tag(tag):
+    tagfiles = Notes.query.filter(Notes.tag == tag)
+    return render_template("taggedfiles.html", tagfiles = tagfiles, tag=tag)

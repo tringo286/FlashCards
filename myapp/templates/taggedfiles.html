@@ -1,0 +1,11 @@
+{% extends "layout.html" %} 
+{% block content %} 
+<div>
+    <h1>Tag: {{ tag }}</h1>
+    {% for file in tagfiles %}
+    <ul>
+        <li> File: <a href="{{ url_for('renderfile', file=file.name) }}"> {{ file.name }}</a>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}
