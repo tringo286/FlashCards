@@ -1,0 +1,32 @@
+{% extends "layout.html" %} 
+
+
+    {% block content %} 
+        <h1> Notes </h1>
+
+        {% for file in files %}  
+            <ul>
+                <li> File: {{ file.name }}     <br> 
+                    Tag: {{ file.tag }}  </li>
+            </ul>
+        {% endfor %}
+        <div class="modal-body">
+            <div class="input-group mb-3">
+              <form method="POST" novalidate>
+                  {{ form.hidden_tag() }}
+              
+                  <p> {{ form.note.label }} <br>
+                      {{ form.note(size=32) }}
+                  </p>
+                  <p> {{ form.tag.label }} <br>
+                      {{ form.tag(size=32) }}
+                  </p>
+              
+            </div>
+        </div>
+        <div class="modal-footer">
+          <p>	{{ form.submit(size=32) }} </p>
+        </div>
+        </form>
+
+    {% endblock %}
