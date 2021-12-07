@@ -31,7 +31,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav ml-auto mr-3">
-                                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                                <a class="nav-item nav-link" href="{{ url_for('logout',username=username) }}">Logout</a>
                                 <a class="nav-item nav-link" href="{{ url_for('deleteMember')}}">Delete Account</a>
                             </div>
                         </div>

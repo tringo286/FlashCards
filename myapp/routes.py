@@ -1,7 +1,6 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
-import myapp
-from datetime import date
+import datetime
 from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards
 from flask import render_template, request, flash, redirect, make_response, session, url_for
 from myapp.models import User, ToDo, load_user, Flashcard, FlashCard, Activity, Cards
@@ -52,8 +51,8 @@ def log():
     return 'Hi you are logged in'
 
 
-@myapp_obj.route("/logout")
-def logout():
+@myapp_obj.route("/logout/<string:username>")
+def logout(username):
     """
     This function logs out the user
 
@@ -65,10 +64,25 @@ def logout():
         redirects to '/'
     """
     logout_user()
+    user = User.query.filter_by(username=username).first()
+    data_acitivity = db.session.query(Activity.id, Activity.usertime).group_by(
+        Activity.usertime).order_by(desc(Activity.id)).filter(Activity.owner_id == user.id).all()
+
+    for id, dates in data_acitivity:
+        id_activity = id
+        new_timelogin = dates.timestamp() / 60
+
+    new_timelogout = datetime.datetime.utcnow().timestamp() / 60
+    total_time = new_timelogout-new_timelogin
+
+    activity = Activity.query.filter_by(id=id_activity).first()
+    activity.timeamount = total_time
+    db.session.commit()
+
     return redirect('/')
 
 
-@myapp_obj.route("/login", methods=['GET', 'POST'])
+@ myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
     """
     This function returns the login page with the LoginForm
@@ -87,11 +101,28 @@ def login():
             flash('Incorrect username or password!', 'error')
             return redirect('/login')
         login_user(user, remember=form.remember_me.data)
+
+        exists = db.session.query(Activity.id).filter(
+            Activity.owner_id == user.id).order_by(desc(Activity.id)).first() is not None
+        if exists:
+            user_activity = Activity.query.filter(
+                Activity.owner_id == user.id).order_by(desc(Activity.id)).first()
+            user_time = user_activity.usertime.strftime("%m-%d-%y")
+            today = datetime.datetime.utcnow().strftime("%m-%d-%y")
+            if user_time != today:
+                time_login = Activity(timeamount=0, owner=user)
+                db.session.add(time_login)
+                db.session.commit()
+        else:
+            time_login = Activity(timeamount=0, owner=user)
+            db.session.add(time_login)
+            db.session.commit()
+
         return redirect(url_for('home', username=user))
     return render_template('login.html', form=form)
 
 
-@myapp_obj.route("/members/<string:name>/")
+@ myapp_obj.route("/members/<string:name>/")
 def getMember(name):
     """
     This function returns the user's name
@@ -106,7 +137,7 @@ def getMember(name):
     return 'Hi ' + name
 
 
-@myapp_obj.route("/members/delete")
+@ myapp_obj.route("/members/delete")
 def deleteMember():
     """
     This function deletes a user from the database
@@ -125,7 +156,7 @@ def deleteMember():
     return redirect("/")
 
 
-@myapp_obj.route("/signup", methods=['GET', 'POST'])
+@ myapp_obj.route("/signup", methods=['GET', 'POST'])
 def signup():
     """
     This function returns the signup page with the SignUpForm
@@ -151,9 +182,8 @@ def signup():
     return render_template('signup.html', form=form)
 
 
-@myapp_obj.route("/home/<string:username>", methods=['GET', 'POST'])
+@ myapp_obj.route("/home/<string:username>", methods=['GET', 'POST'])
 def home(username):
-    
     """
     This function goes to user's home page
 
@@ -164,11 +194,11 @@ def home(username):
     ------
         redirects to user's homepage
     """
-    
-    return render_template('home.html',username=username)
+
+    return render_template('home.html', username=username)
 
 
-@myapp_obj.route("/todo/<string:username>", methods=['GET', 'POST'])
+@ myapp_obj.route("/todo/<string:username>", methods=['GET', 'POST'])
 def todo(username):
     """
     This function returns the ToDo list page with the ToDoForm
@@ -193,7 +223,7 @@ def todo(username):
     return render_template('todo.html', title=title, form=form, list=list, username=username)
 
 
-@myapp_obj.route("/todo/inprog/<string:item>", methods=['GET', 'POST'])
+@ myapp_obj.route("/todo/inprog/<string:item>", methods=['GET', 'POST'])
 def inProgress(item):
     """
     This function changes the todo list item to status: In Progress
@@ -214,7 +244,7 @@ def inProgress(item):
     return redirect("/todo")
 
 
-@myapp_obj.route("/todo/<string:item>", methods=['GET', 'POST'])
+@ myapp_obj.route("/todo/<string:item>", methods=['GET', 'POST'])
 def editTodo(item):
     """
     This function changes the todo list item to status: Todo
@@ -235,7 +265,7 @@ def editTodo(item):
     return redirect("/todo")
 
 
-@myapp_obj.route("/todo/comp/<string:item>", methods=['GET', 'POST'])
+@ myapp_obj.route("/todo/comp/<string:item>", methods=['GET', 'POST'])
 def complete(item):
     """
     This function changes the todo list item to status: Complete
@@ -256,7 +286,7 @@ def complete(item):
     return redirect("/todo")
 
 
-@myapp_obj.route("/todo/delete/<string:item>", methods=['GET', 'POST'])
+@ myapp_obj.route("/todo/delete/<string:item>", methods=['GET', 'POST'])
 def deleteTodo(item):
     """
     This function deletes a task from the ToDo list
@@ -277,7 +307,7 @@ def deleteTodo(item):
     return redirect("/todo")
 
 
-@myapp_obj.route("/render/<string:username>")
+@ myapp_obj.route("/render/<string:username>")
 def renderpage(username):
     """
     This function prints out a list of files that have been uploaded
@@ -294,7 +324,7 @@ def renderpage(username):
     return render_template('render.html', files=files, username=username)
 
 
-@myapp_obj.route("/render/<string:file>/<string:username>")
+@ myapp_obj.route("/render/<string:file>/<string:username>")
 def render(file, username):
     """
     Render selected markdown file
@@ -304,13 +334,13 @@ def render(file, username):
     return html
 
 
-@myapp_obj.route("/search<string:username>", methods=['GET', 'POST'])
+@ myapp_obj.route("/search/<string:username>", methods=['GET', 'POST'])
 def search(username):
     """
     This function creates a route for the find-text-in-files feature
 
         Parameters:
-                text: get form the input box                   
+                text: get form the input box
         Returns:
                 Show a page for the find-text-in-files feature
     """
@@ -330,18 +360,16 @@ def search(username):
 
 def allowed_file(filename):
 
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@myapp_obj.route('/markdown-to-pdf/<string:username>', methods=['GET', 'POST'])
+@ myapp_obj.route('/markdown-to-pdf/<string:username>', methods=['GET', 'POST'])
 def markdown_to_pdf(username):
-   
     """
     This function creates a route for the markdown-to-pdf feature
 
             Parameters:
-                    file: browse from user's directory                    
+                    file: browse from user's directory
             Returns:
                     Show a page for the markdown-to-pdf feature
     """
@@ -371,13 +399,13 @@ def markdown_to_pdf(username):
     return render_template("markdown_to_pdf.html", form=form, username=username)
 
 
-@myapp_obj.route('/rename/<string:username>', methods=['GET', 'POST'])
+@ myapp_obj.route('/rename/<string:username>', methods=['GET', 'POST'])
 def rename(username):
     """
     This function creates a route for the rename-file feature
 
             Parameters:
-                    file: browse from user's directory 
+                    file: browse from user's directory
                     new_name: get from input box
             Returns:
                     Show a page for the rename-file feature
@@ -387,28 +415,33 @@ def rename(username):
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
-        file = request.files['file']        
+        file = request.files['file']
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], filename))  
-            new_name = request.form['new_name']           
-            os.rename(UPLOAD_FOLDER + filename, UPLOAD_FOLDER + new_name + '.md')	   
-            flash(f'Your file was successfully renamed by {form.new_name.data}.md and stored in the path myapp/upload/')
-    return render_template("rename.html", form=form, username= username)
+            file.save(os.path.join(
+                myapp_obj.config['UPLOAD_FOLDER'], filename))
+            new_name = request.form['new_name']
+            os.rename(UPLOAD_FOLDER + filename,
+                      UPLOAD_FOLDER + new_name + '.md')
+            flash(
+                f'Your file was successfully renamed by {form.new_name.data}.md and stored in the path myapp/upload/')
+    return render_template("rename.html", form=form, username=username)
 
 
+"""
 @myapp_obj.route("/index/<string:user_name>", methods=["POST", "GET"])
 def index(user_name):
     title_homepage = 'Top Page'
     greeting = user_name
     return render_template("index.html", title_pass=title_homepage, XX=greeting)
+"""
 
 
-@myapp_obj.route("/visualizehours", methods=["POST", "GET"])
-def visualize():
+@myapp_obj.route('/visualizehours/<string:username>', methods=["POST", "GET"])
+def visualize(username):
     """
     This class represent for handling visualize hours feature
 
@@ -421,74 +454,32 @@ def visualize():
     ------
         Perform a page with charts
     """
-    title_homepage = 'Top Page'
+    title_homepage = 'visualize'
     categories = ['Math', 'Physics', 'English', 'Computer']
-    exists = db.session.query(User.id).filter_by(
-        username='morning').first() is not None
 
-    if not exists:
-        user1 = User(username='morning',
-                     email='m@gmail.com')
-        db.session.add(user1)
-        db.session.commit()
-        user2 = User(username='evening',
-                     email='e@gmail.com')
-        db.session.add(user2)
-        db.session.commit()
+    u1 = User.query.filter_by(username=username).first()
 
-    u1 = User.query.filter_by(username='morning').first()
-    u2 = User.query.filter_by(username='evening').first()
+    z0 = FlashCard(title='a', defination='0',
+                   category=categories[3], owner=u1)
+    z1 = FlashCard(title='b', defination='1',
+                   category=categories[0], owner=u1)
+    z2 = FlashCard(title='c', defination='2',
+                   category=categories[2], owner=u1)
+    z3 = FlashCard(title='d', defination='3',
+                   category=categories[1], owner=u1)
+    z3 = FlashCard(title='e', defination='4',
+                   category=categories[3], owner=u1)
+    db.session.add(z0)
+    db.session.add(z1)
+    db.session.add(z2)
+    db.session.add(z3)
+    db.session.commit()
 
-    if u1 is not None:
-        a = Activity(timeamount=135, owner=u1)
-        db.session.add(a)
-        db.session.commit()
-        b = Activity(timeamount=100, owner=u1)
-        db.session.add(b)
-        db.session.commit()
-        b1 = Activity(timeamount=300, owner=u1)
-        db.session.add(b1)
-        db.session.commit()
-        b2 = Activity(timeamount=250, owner=u1)
-        db.session.add(b2)
-        db.session.commit()
-        b3 = Activity(timeamount=600, owner=u1)
-        db.session.add(b3)
-        db.session.commit()
-        c = Activity(timeamount=88, owner=u2)
-        db.session.add(c)
-        db.session.commit()
+    data_flashcard = db.session.query(db.func.sum(FlashCard.count_category), FlashCard.category).group_by(
+        FlashCard.category).order_by(FlashCard.category).filter(FlashCard.owner_id == u1.id).all()
 
-        z = FlashCard(title='zzzzzzz', defination='00000000',
-                      category='Math', owner=u1)
-        db.session.add(z)
-        db.session.commit()
-        z1 = FlashCard(title='zzzzz', defination='11111111',
-                       category=categories[0], owner=u1)
-        db.session.add(z1)
-        db.session.commit()
-        z2 = FlashCard(title='zzzzz', defination='222222',
-                       category=categories[0], owner=u1)
-        db.session.add(z2)
-        db.session.commit()
-        z3 = FlashCard(title='zzzzzz', defination='33333',
-                       category=categories[1], owner=u1)
-        db.session.add(z3)
-        db.session.commit()
-        z4 = FlashCard(title='zzzzzz', defination='444444',
-                       category=categories[2], owner=u1)
-        db.session.add(z4)
-        db.session.commit()
-        x = FlashCard(title='xxxxx', defination='00000',
-                      category=categories[0], owner=u2)
-        db.session.add(x)
-        db.session.commit()
-
-        data_flashcard = db.session.query(db.func.sum(FlashCard.count_category), FlashCard.category).group_by(
-            FlashCard.category).order_by(FlashCard.category).filter(FlashCard.owner_id == u1.id).all()
-
-        data_acitivity = db.session.query(Activity.timeamount, Activity.usertime).group_by(
-            Activity.usertime).order_by(Activity.usertime).filter(Activity.owner_id == u1.id).all()
+    data_acitivity = db.session.query(Activity.timeamount, Activity.usertime).group_by(
+        Activity.usertime).order_by(Activity.usertime).filter(Activity.owner_id == u1.id).all()
 
     category_labels = []
     count_category_labels = []
@@ -502,12 +493,12 @@ def visualize():
         date_labels.append(dates.strftime("%m-%d-%y"))
         amount_labels.append(amounts)
 
-    return render_template("visualizehours.html", amounts=amount_labels, dates=date_labels,
-                           category=category_labels, c_category=count_category_labels)
+    return render_template("visualizehours.html", title_pass=title_homepage, amounts=amount_labels, dates=date_labels,
+                           category=category_labels, c_category=count_category_labels, username=username)
 
 
-@myapp_obj.route("/trackhours", methods=["POST", "GET"])
-def trackinghours():
+@myapp_obj.route('/trackhours/<string:username>', methods=["POST", "GET"])
+def trackinghours(username):
     """
     This class represent for handling tracking hours feature
 
@@ -519,7 +510,7 @@ def trackinghours():
     ------
         Perform a page with tables that show their activities
     """
-    u1 = User.query.filter_by(username='morning').first()
+    u1 = User.query.filter_by(username=username).first()
     data_flashcard = db.session.query(FlashCard.id, FlashCard.times_created, FlashCard.title, FlashCard.category).order_by(
         FlashCard.times_created.desc()).filter(FlashCard.owner_id == u1.id).all()
 
@@ -528,12 +519,12 @@ def trackinghours():
         temp_date = dates.strftime("%m-%d-%Y")
         if temp_date not in date_labels:
             date_labels.append(temp_date)
-    print(date_labels)
-    return render_template("trackhours.html", entries=data_flashcard, current_dates=date_labels[0], list_dates=date_labels)
+
+    return render_template("trackhours.html", entries=data_flashcard, current_dates=date_labels[0], list_dates=date_labels, username=username)
 
 
-@myapp_obj.route('/delete-post/<int:entry_id>')
-def delete(entry_id):
+@myapp_obj.route('/delete-post/<int:entry_id>/<string:username>')
+def delete(entry_id, username):
     """
     This class represent for handling delete from table in tracking hour feature
 
@@ -547,7 +538,7 @@ def delete(entry_id):
     entry = FlashCard.query.get_or_404(int(entry_id))
     db.session.delete(entry)
     db.session.commit()
-    return redirect(url_for("trackinghours"))
+    return redirect(url_for("trackinghours", username=username))
 
 
 @myapp_obj.route("/flashcards/<string:username>", methods=["POST", "GET"])
@@ -560,7 +551,7 @@ def flashcards(username):
                       order=db.session.query(Cards).count(), user_id=user_id)
         db.session.add(cards)
         db.session.commit()
-        return redirect("/flashcards")
+        return redirect(url_for('flashcards', username=username))
     cards = Cards.query.filter(Cards.user_id).order_by(Cards.order.asc()).all()
     return render_template("flashcards.html", title=title, form=form, flash_cards=cards, username=username)
 
