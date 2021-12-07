@@ -44,7 +44,7 @@
         <td>{{ entry.title }}</td>
         <td>
           <a
-            href="{{ url_for('delete', entry_id = entry.id) }}"
+            href="{{ url_for('delete', entry_id = entry.id,username=username) }}"
             class="btn btn-outline-danger btn-sm"
             >Delete</a
           >

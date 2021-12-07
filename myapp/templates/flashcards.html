@@ -23,7 +23,7 @@
         </p>
     </form>
     <hr>
-    <form method="get" action="{{ url_for('question',num=1, username=username) }}">
+    <form method="GET" action="{{ url_for('question',num=1, username=username) }}">
         <button type="submit">Start Quiz</button>
     </form>
 {% endblock %}
