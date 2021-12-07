@@ -68,7 +68,7 @@
                         <td style="text-align: center;">
                             <select name="status" id="status" onChange="window.location.href=this.value">
                                 <option value="In Progress">In Progress</option>
-                                <option value = "/todo/{{ item.body }}">Todo</option>
+                                <option value = "/todo/update/{{ item.body }}">Todo</option>
                                 <option value = "/todo/comp/{{ item.body }}">Complete</option>
                                 <option value = "/todo/delete/{{ item.body }}">Delete</option>
                             </select>
@@ -89,7 +89,7 @@
                         <td style="text-align: center;"><select name="status" id="status" onChange="window.location.href=this.value">
                             <option value="Complete">Complete</option>
                             <option value = "/todo/inprog/{{ item.body }}">In Progress</option>
-                            <option value = "/todo/{{ item.body }}">Todo</option>
+                            <option value = "/todo/update/{{ item.body }}">Todo</option>
                             <option value = "/todo/delete/{{ item.body }}">Delete</option>
                         </select></td>
                     {%endif%}

@@ -103,3 +103,17 @@ class FlashCards(FlaskForm):
         question = StringField()
         answer = StringField(validators=[DataRequired()])
         submit = SubmitField("Submit")
+
+class AddTag(FlaskForm):
+        """
+	This class adds a tag to notes
+
+            Parameters:
+                    tag (StringField): A tag		    
+                    sumbit (SubmitField): A submit button 
+            Returns:
+                    Show a markdown-to-pdf form for the markdown-to-pdf feature
+	"""
+        note = StringField ('Which Notes would you like to add a tag to?')
+        tag = StringField("Add a Tag")
+        submit = SubmitField("Submit")

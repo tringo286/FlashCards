@@ -160,3 +160,17 @@ class Cards(db.Model):
 
     def __repr__(self):
         return f'<Cards {self.question}>'
+
+
+class Notes(db.Model):
+	__tablename__ = 'notes'
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(64))
+	body = db.Column(db.String(2000))
+	tag = db.Column(db.String(30))
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+	def __init__(self, name, user_id, body):
+		self.name = name
+		self.user_id = user_id
+		self.body = body
