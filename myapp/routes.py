@@ -595,8 +595,8 @@ def question(num, username):
     return render_template("question.html", title=title, form=form, flash_cards=cards, checker=checker, username=username)
 
 
-@myapp_obj.route("/getfiles/", methods=["POST", "GET"])
-def getFiles():
+@myapp_obj.route('/addtags/<string:username>', methods=["POST", "GET"])
+def addtags(username):
     form = AddTag()
     if form.validate_on_submit():
         file = form.note.data
@@ -606,4 +606,4 @@ def getFiles():
         Notes.name == file).update({Notes.tag: tag})
         db.session.commit()
     files = Notes.query.all()
-    return render_template("testfiles.html", form=form, files=files)
+    return render_template("addtags.html", form=form, files=files)
