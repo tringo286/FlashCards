@@ -600,3 +600,8 @@ def addtags(username):
         db.session.commit()
     files = Notes.query.all()
     return render_template("addtags.html", form=form, files=files)
+
+@myapp_obj.route('/renderfile/<string:file>', methods=["POST", "GET"])
+def renderfile(file):
+    html = Render.render(file)
+    return render_template("showfile.html", html=html)
