@@ -606,14 +606,17 @@ def addtags(username):
         Notes.name == file).update({Notes.tag: tag})
         db.session.commit()
     files = Notes.query.all()
-    return render_template("addtags.html", form=form, files=files)
+    return render_template("addtags.html", form=form, files=files, username=username)
 
-@myapp_obj.route('/renderfile/<string:file>', methods=["POST", "GET"])
-def renderfile(file):
+@myapp_obj.route('/renderfile/<string:file>/<string:username>', methods=["POST", "GET"])
+def renderfile(file, username):
     html = Render.render(file)
-    return render_template("showfile.html", html=html)
+    username=username
+    return render_template("showfile.html", html=html, username=username)
 
-@myapp_obj.route('/tag/<string:tag>', methods=["GET"])
-def tag(tag):
+@myapp_obj.route('/tag/<string:tag>/<string:username>', methods=["GET"])
+def tag(tag, username):
+    tag = tag
+    username = username
     tagfiles = Notes.query.filter(Notes.tag == tag)
-    return render_template("taggedfiles.html", tagfiles = tagfiles, tag=tag)
+    return render_template("taggedfiles.html", tagfiles = tagfiles, tag=tag, username=username)

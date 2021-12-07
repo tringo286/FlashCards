@@ -4,7 +4,7 @@
     <h1>Tag: {{ tag }}</h1>
     {% for file in tagfiles %}
     <ul>
-        <li> File: <a href="{{ url_for('renderfile', file=file.name) }}"> {{ file.name }}</a>
+        <li> File: <a href="/renderfile/{{file.name}}/{{username}}"> {{ file.name }}</a>
     </ul>
     {% endfor %}
 </div>
