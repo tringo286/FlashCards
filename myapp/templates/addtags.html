@@ -7,7 +7,7 @@
         {% for file in files %}  
             <ul>
                 <li> File: <a href="{{ url_for('renderfile', file=file.name) }}"> {{ file.name }}</a>      <br> 
-                    Tag: {{ file.tag }}  </li>
+                    Tag: <a href="{{ url_for('tag', tag=file.tag) }}">{{ file.tag }} </a> </li>
             </ul>
         {% endfor %}
         <div class="modal-body">

@@ -612,3 +612,8 @@ def addtags(username):
 def renderfile(file):
     html = Render.render(file)
     return render_template("showfile.html", html=html)
+
+@myapp_obj.route('/tag/<string:tag>', methods=["GET"])
+def tag(tag):
+    tagfiles = Notes.query.filter(Notes.tag == tag)
+    return render_template("taggedfiles.html", tagfiles = tagfiles, tag=tag)
