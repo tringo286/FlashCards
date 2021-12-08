@@ -1,7 +1,6 @@
 from sqlalchemy.sql.expression import delete
 from myapp import myapp_obj
-
-from datetime import date
+import datetime
 from myapp.forms import LoginForm, SignupForm, ToDoForm, SearchForm, RenameForm, MdToPdfForm, FlashCards, AddTag
 
 from flask import render_template, request, flash, redirect, make_response, session, url_for
@@ -397,11 +396,11 @@ def markdown_to_pdf(username):
             # add file to db
             body = Render.render(input_file)
             user_id = current_user.id
-            aNote = Notes(filename, user_id, body )
+            aNote = Notes(filename, user_id, body)
             db.session.add(aNote)
             db.session.commit()
 
-            #resume code
+            # resume code
             output_file = input_file.split(".md")
             output_file = output_file[0] + '.pdf'
             with open(input_file, 'r') as f:
@@ -598,20 +597,22 @@ def addtags(username):
         tag = form.tag.data
         user_id = current_user.id
         db.session.query(Notes).filter(
-        Notes.name == file).update({Notes.tag: tag})
+            Notes.name == file).update({Notes.tag: tag})
         db.session.commit()
     files = Notes.query.all()
     return render_template("addtags.html", form=form, files=files, username=username)
 
+
 @myapp_obj.route('/renderfile/<string:file>/<string:username>', methods=["POST", "GET"])
 def renderfile(file, username):
     html = Render.render(file)
-    username=username
+    username = username
     return render_template("showfile.html", html=html, username=username)
+
 
 @myapp_obj.route('/tag/<string:tag>/<string:username>', methods=["GET"])
 def tag(tag, username):
     tag = tag
     username = username
     tagfiles = Notes.query.filter(Notes.tag == tag)
-    return render_template("taggedfiles.html", tagfiles = tagfiles, tag=tag, username=username)
+    return render_template("taggedfiles.html", tagfiles=tagfiles, tag=tag, username=username)
